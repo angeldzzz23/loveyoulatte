@@ -27,6 +27,12 @@ The following **bonus** features are implemented:
 - [ ] Add something with a JS library you haven’t used before
 
 
+## TOOLS 
+- Tmux 
+- CentOS for deployment 
+- flask 
+
+
 ## References 
 - https://github.com/MLH-Fellowship/sre-portfolio-site (used just the flask starter code)
 
