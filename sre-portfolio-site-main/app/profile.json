@@ -1,0 +1,28 @@
+{
+	"about": "THIS IS AN ADVENTURE<br>The Best Coffee You Will Ever Have.",
+	"featuredProducts": [
+		{
+			"name": "Red bull",
+			"price":"$20.00",
+			"image": "<img src='/static/product-img/redbull.png'>"
+		}, 
+		{
+			"name": "Yerba Mate",
+			"price":"$15.00",
+			"image": "<img src='/static/product-img/yerbaOrigi.png'>"
+		}, 
+		{
+			"name": "rock start",
+			"price":"$15.00",
+			"image": "<img src='/static/product-img/rockstar.png'>"
+		}, 
+		{
+			"name": "bang(star)",
+			"price":"$15.00",
+			"image": "<img src='/static/product-img/starblast.png'>"
+		}
+
+	]
+
+
+}
