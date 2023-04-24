@@ -14,7 +14,7 @@ def index():
 
 @app.route('/menu')
 def menu():
-    return render_template('menu.html', title="menu")
+    return render_template('menu.html', title="menu", profile=profile)
 
 @app.route('/about')
 def about():

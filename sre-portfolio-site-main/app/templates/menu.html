@@ -36,245 +36,68 @@
       <div class="s-container">
           <!-- Featured products -->
  <div class="small-container">
-   <h2 class="title">Signature Drink</h2>
+   <h2 class="title">Signature Drinks</h2>
    <div class="row">
-
-
-     <div class="col-4">
+    {% for x in range(profile["featuredProducts"] | length) %}
+    <div class="col-4">
       <a href="productDetails.php?id=1">
-        <img src="./static/product-img/redbull.png" alt="">
-        <h4>Pink Late</h4>
-        <p>$10.20</p>
+        <!-- <img src="./static/product-img/redbull.png" alt=""> -->
+         {{ profile["featuredProducts"][x]["image"] | safe }}
+        <h4>{{ profile["featuredProducts"][x]["name"] }}</h4>
+        <p>{{ profile["featuredProducts"][x]["price"] }}</p>
       </a>
-     </div>
-     <div class="col-4">
-      <a href="productDetails.php?id=2">
-        <img src="./static/product-img/yerbaOrigi.png" alt="">
-        <h4>Butterfly Pea Tea Latte</h4>
-        <p>$15.00</p>
-      </a>
-     </div>
+     </div>  
 
-     <div class="col-4">
-      <a href="productDetails.php?id=3">
-        <img src="./static/product-img/starblast.png" alt="">
-        <h4>Dirty Rose Latte</h4>
-        <p>$2.00</p>
-      </a>
-     </div>
-
-     <div class="col-4">
-      <a href="productDetails.php?id=4">
-        <img src="./static/product-img/rockstar.png" alt="">
-        <h4>Chocolate Chip Cookie Latte</h4>
-        <p>$20.00</p>
-      </a>
-     </div>
-
-     <div class="col-4">
-      <a href="productDetails.php?id=4">
-        <img src="./static/product-img/rockstar.png" alt="">
-        <h4>Cookies N' Cream latte</h4>
-        <p>$20.00</p>
-      </a>
-     </div>
-
-      <div class="col-4">
-      <a href="productDetails.php?id=4">
-        <img src="./static/product-img/rockstar.png" alt="">
-        <h4>Lavender Latte (Hot/Iced)</h4>
-        <p>$20.00</p>
-      </a>
-     </div>
-
-     <div class="col-4">
-      <a href="productDetails.php?id=4">
-        <img src="./static/product-img/rockstar.png" alt="">
-        <h4>Rose Matcha (Hot/Iced)</h4>
-        <p>$20.00</p>
-      </a>
-     </div>
-
-     <div class="col-4">
-      <a href="productDetails.php?id=4">
-        <img src="./static/product-img/rockstar.png" alt="">
-        <h4> Dirty Chai Latte (Iced/Hot)</h4>
-        <p>$20.00</p>
-      </a>
-     </div>
-
-  <div class="col-4">
-      <a href="productDetails.php?id=4">
-        <img src="./static/product-img/rockstar.png" alt="">
-        <h4> Salted Caramel hot coco</h4>
-        <p>$20.00</p>
-      </a>
-     </div>
-
+    {% endfor %}
    </div>
-       <h2 class="title">Espresso</h2>
 
-       <div class="row">
+    <h2 class="title">Matcha</h2>
+   <div class="row">
+    {% for x in range(profile["full_teaBasedMenu"] | length) %}
+    <div class="col-4">
+      <a href="productDetails.php?id=1">
+        <!-- <img src="./static/product-img/redbull.png" alt=""> -->
+         {{ profile["full_teaBasedMenu"][x]["image"] | safe }}
+        <h4>{{ profile["full_teaBasedMenu"][x]["name"] }}</h4>
+        <p>{{ profile["full_teaBasedMenu"][x]["price"] }}</p>
+      </a>
+     </div>  
 
-         <div class="col-4">
-          <a href="productDetails.php?id=6">
-            <img src="./static/product-img/purpleHaze.png" alt="">
-            <h4>Double Espresso (Hot/Iced)</h4>
-            <p>$210.00</p>
-          </a>
-         </div>
+    {% endfor %}
+   </div>
 
-         <div class="col-4">
-          <a href="productDetails.php?id=7">
-            <img src="./static/product-img/monster.png" alt="">
-            <h4>Americano (Hot/Iced)</h4>
-            <p>$29.00</p>
-          </a>
-         </div>
+    <h2 class="title">Espresso</h2>
+   <div class="row">
+    {% for x in range(profile["expressoFull"] | length) %}
+    <div class="col-4">
+      <a href="productDetails.php?id=1">
+        <!-- <img src="./static/product-img/redbull.png" alt=""> -->
+         {{ profile["expressoFull"][x]["image"] | safe }}
+        <h4>{{ profile["expressoFull"][x]["name"] }}</h4>
+        <p>{{ profile["expressoFull"][x]["price"] }}</p>
+      </a>
+     </div>  
 
-         <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Cortado (Hot)</h4>
-            <p>$210.00</p>
-          </a>
-         </div>
-
-          <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Cappuccino (Hot/Iced)</h4>
-            <p>$210.00</p>
-          </a>
-         </div> 
-
-          <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Latte (Hot/Iced)</h4>
-            <p>$210.00</p>
-          </a>
-         </div>
-          <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Latte (Hot/Iced)</h4>
-            <p>$210.00</p>
-          </a>
-         </div>
-          <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Mocha (Hot/Iced)</h4>
-            <p>$210.00</p>
-          </a>
-         </div>
-          <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Single Add Shot</h4>
-            <p>$210.00</p>
-          </a>
-         </div>
-          <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Salted Butterscotch Latte (Hot/Iced)</h4>
-            <p>$210.00</p>
-          </a>
-         </div>
-          <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Cold Brew</h4>
-            <p>$210.00</p>
-          </a>
-         </div>
-
-       </div>
-
-        <h2 class="title">Matcha Latte</h2>
-
-       <div class="row">
-
-         <div class="col-4">
-          <a href="productDetails.php?id=6">
-            <img src="./static/product-img/purpleHaze.png" alt="">
-            <h4>Matcha Latte</h4>
-            <p>$6</p>
-          </a>
-         </div>
-
-         <div class="col-4">
-          <a href="productDetails.php?id=7">
-            <img src="./static/product-img/monster.png" alt="">
-            <h4>Vanilla Matcha latte</h4>
-            <p>$6.50</p>
-          </a>
-         </div>
-
-         <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Peppermint Vanilla Matcha</h4>
-            <p>$6.25</p>
-          </a>
-         </div>
-
-        <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Strawberry Matcha</h4>
-            <p>$7</p>
-          </a>
-         </div>
-
-       </div>
-
+    {% endfor %}
+   </div>
         <h2 class="title">Loose Leaf Tea</h2>
 
        <div class="row">
-
-         <div class="col-4">
-          <a href="productDetails.php?id=6">
-            <img src="./static/product-img/purpleHaze.png" alt="">
-            <h4>Green Tea (Hot/Iced)</h4>
-            <p>$4.50</p>
-          </a>
-         </div>
-
-         <div class="col-4">
-          <a href="productDetails.php?id=7">
-            <img src="./static/product-img/monster.png" alt="">
-            <h4>Earl Grey (Hot/Iced)</h4>
-            <p>$4.50</p>
-          </a>
-         </div>
-
-         <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Hibiscus Flowers</h4>
-            <p>$4.50</p>
-          </a>
-         </div>
-
-
+        {% for x in range(profile["Loose_Leaf_Tea_full"] | length) %}
+            <div class="col-4">
+              <a href="productDetails.php?id=1">
+                <!-- <img src="./static/product-img/redbull.png" alt=""> -->
+                 {{ profile["Loose_Leaf_Tea_full"][x]["image"] | safe }}
+                <h4>{{ profile["Loose_Leaf_Tea_full"][x]["name"] }}</h4>
+                <p>{{ profile["Loose_Leaf_Tea_full"][x]["price"] }}</p>
+              </a>
+             </div>  
+            {% endfor %}        
        </div>
 
  </div>
 
-
-
       </div>
-
-
-
-
-
-
-
-
 
 
 

@@ -39,7 +39,112 @@
 			"price":"$6.25",
 			"image": "<img src='/static/product-img/Peppermint_Vanilla_Matcha.jpg'>"
 		}
+	], 
+	"full_teaBasedMenu": [
+		{
+			"name": "Matcha Latte",
+			"price":"$6",
+			"image": "<img src='/static/product-img/Matcha_Latte.jpg'>"
+		}, 
+		{
+			"name": "Vanilla Matcha latte",
+			"price":"$6.50",
+			"image": "<img src='/static/product-img/Vanilla_Matcha_latte.jpg'>"
+		}, 
+		{
+			"name": "Peppermint Vanilla Matcha",
+			"price":"$6.25",
+			"image": "<img src='/static/product-img/Peppermint_Vanilla_Matcha.jpg'>"
+		}, 
+		{
+			"name": "Strawberry Matcha",
+			"price":"$7",
+			"image": "<img src='/static/product-img/StrawberryMatcha.jpg'>"
+		}, 
+		{
+			"name": "Pink Matcha",
+			"price":"$6.50",
+			"image": "<img src='/static/product-img/pink_matcha.jpg'>"
+		}, 
+		{
+			"name": "Blue Matcha",
+			"price":"$6.50",
+			"image": "<img src='/static/product-img/blue_matcha.jpg'>"
+		}
+	], 
+
+	"expressoFull": [
+		{
+			"name": "Double Espresso (Hot/Iced)",
+			"price":"$3.75",
+			"image": "<img src='/static/product-img/expresso/DoubleEspresso.jpg'>"
+		}, 
+		{
+			"name": "Americano (Hot/Iced)",
+			"price":"$4.00",
+			"image": "<img src='/static/product-img/expresso/Americano.jpg'>"
+		}, 
+		{
+			"name": "Cortado (Hot)",
+			"price":"$4",
+			"image": "<img src='/static/product-img/expresso/Cortado.jpg'>"
+		}, 
+		{
+			"name": "Cappuccino (Hot/Iced)",
+			"price":"$4.50",
+			"image": "<img src='/static/product-img/expresso/Cappuccino.jpg'>"
+		}, 
+		{
+			"name": "Latte (Hot/Iced)",
+			"price":"$5.00",
+			"image": "<img src='/static/product-img/expresso/Latte.jpg'>"
+		}, 
+		{
+			"name": "Mocha (Hot/Iced)",
+			"price":"$5.75",
+			"image": "<img src='/static/product-img/expresso/Mocha.jpg'>"
+		}, 
+		{
+			"name": "Salted Butterscotch Latte (Hot/Iced)",
+			"price":"$5.75",
+			"image": "<img src='/static/product-img/expresso/Salted_Butterscotch_Latte.jpg'>"
+		}, 
+		{
+			"name": "Peppermint Mocha (Hot/Iced)",
+			"price":"$5.50",
+			"image": "<img src='/static/product-img/expresso/PeppermintMocha.jpg'>"
+		}
+	],
+
+	"Loose_Leaf_Tea_full": [
+		{
+			"name": "Green Tea (Hot/Iced)",
+			"price":"$4.50",
+			"image": "<img src='/static/product-img/tea/Green_Tea.jpg'>"
+		}, 
+		{
+			"name": "Earl Grey (Hot/Iced)",
+			"price":"$4.50",
+			"image": "<img src='/static/product-img/tea/EarlGrey.jpg'>"
+		}, 
+		{
+			"name": "Hibiscus Flowers (Hot/Iced)",
+			"price":"$4.50",
+			"image": "<img src='/static/product-img/tea/HibiscusFlowers.jpg'>"
+		}, 
+		{
+			"name": "Rose Flower Tea (Hot/Iced)",
+			"price":"$4.50",
+			"image": "<img src='/static/product-img/tea/RoseFlowerTea.jpg'>"
+		}
+
+		
+
 	]
+
+
+
+
 
 
 }
