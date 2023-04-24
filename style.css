@@ -183,6 +183,9 @@ h4 {
 .col-4 p {
   font-size: 14px;
 }
+#about_us {
+   font-size: 20px;
+}
 
 .col-4:hover {
   transform:translateY(-5px);
