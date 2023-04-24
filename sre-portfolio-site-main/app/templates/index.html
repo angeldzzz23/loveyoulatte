@@ -64,7 +64,7 @@
         <!-- <img src="./static/product-img/redbull.png" alt=""> -->
          {{ profile["featuredProducts"][x]["image"] | safe }}
         <h4>{{ profile["featuredProducts"][x]["name"] }}</h4>
-        <p>$10.20</p>
+        <p>{{ profile["featuredProducts"][x]["price"] }}</p>
       </a>
      </div>  
 
