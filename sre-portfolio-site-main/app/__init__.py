@@ -14,6 +14,9 @@ def index():
 
 @app.route('/menu')
 def menu():
+    username = request.args.get('id')
+    print('the id', username)
+
     return render_template('menu.html', title="menu", profile=profile)
 
 @app.route('/about')

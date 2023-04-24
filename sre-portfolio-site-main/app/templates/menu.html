@@ -70,7 +70,7 @@
    <div class="row">
     {% for x in range(profile["expressoFull"] | length) %}
     <div class="col-4">
-      <a href="productDetails.php?id=1">
+      <a href="menu?id=2">
         <!-- <img src="./static/product-img/redbull.png" alt=""> -->
          {{ profile["expressoFull"][x]["image"] | safe }}
         <h4>{{ profile["expressoFull"][x]["name"] }}</h4>
@@ -99,11 +99,35 @@
 
       </div>
 
+ <!-- adding the footer -->
+<div class="footer" style="background-color: #fad0c3;">
+<div class="col-6">
+  <h3>useful Links</h3>
+  <a href="/">Home</a>
+  <a href="menu">Menu</a>
+  <a href="about">About</a>
+</div>
+
+
+<div class="col-7">
+  <h3>The real website</h3>
+  <a href="https://www.loveyoulatte.cafe">Click Me</a>
+</div>
+
+
+<div class="col-8">
+  <h3>Location</h3>
+  <p>275 W Lexington Dr3<br>Glendale, California</p>
+</div>
+
+
+</div>
+<!-- second footer -->
+<div class="footer2" style="background-color: #63252a; color: #fad0c3; text-align: center;">  
+  Made with ❤️ and ☕️
+</div>  
+<!-- end of footer -->
 
 
       </body>
-
-
-
-
 </html>
