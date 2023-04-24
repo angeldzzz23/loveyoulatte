@@ -123,6 +123,34 @@ p{
   width: 100%;
 }
 
+
+.ourCafe {
+  text-align: center;
+  margin: 0 auto 0px;
+  position: relative;
+  line-height: 60px;
+  color: #555;
+}
+
+#ourcafeText{
+ font-size: 20px;
+ text-align: center;
+ padding-bottom: 20px;
+ padding-top: 20px;
+}
+
+.ourCafe::after {
+  content: '';
+  background: #c4d6d6;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .title {
   text-align: center;
   margin: 0 auto 80px;
@@ -130,6 +158,9 @@ p{
   line-height: 60px;
   color: #555;
 }
+
+
+
 
 /* Adds a line after the products */
 .title::after {
