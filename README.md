@@ -3,7 +3,7 @@ Redesign website of my favorite coffee shop
 
 The task is to (1) develop a single-page website for your favorite small business in LA and (2) deploy it online. Please make sure to include a note on your website that it is an unofficial webpage for the small business; if this small business already has a website, please submit your own personal redesign or reimagination of that website instead of duplicating the existing one.
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
@@ -25,6 +25,10 @@ The following **bonus** features are implemented:
 - [ ] Display if the business is currently open or closed
 - [ ] Hide a part of the page until a button is clicked
 - [ ] Add something with a JS library you haven’t used before
+
+
+## References 
+- https://github.com/MLH-Fellowship/sre-portfolio-site (used just the flask starter code)
 
 
 
