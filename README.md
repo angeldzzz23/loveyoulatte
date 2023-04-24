@@ -9,10 +9,10 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] A section for “About the Business”
-- [ ] A section with images and descriptions of three (3) to four (4) items/services offered by the business
-- [ ] At least one HTML button linking to a different website
-- [ ] A CSS file for styling your website. Use this file to change the color palette and fonts for your website; they cannot be the same as the ones from a template if you choose to use one.
+- [x] A section for “About the Business”
+- [x] A section with images and descriptions of three (3) to four (4) items/services offered by the business
+- [x] At least one HTML button linking to a different website
+- [x] A CSS file for styling your website. Use this file to change the color palette and fonts for your website; they cannot be the same as the ones from a template if you choose to use one.
 - [ ] publish website 
 
 The following **bonus** features are implemented:
@@ -20,8 +20,8 @@ The following **bonus** features are implemented:
 - [ ] Navigation menu and multiple pages
 - [ ] An “overview” section linking to other sections with page anchors
 - [ ] onHover/onScroll animations
-- [ ] A mobile responsive site
-- [ ] More advanced use of flexbox/grid CSS
+- [x] A mobile responsive site
+- [x] More advanced use of flexbox/grid CSS
 - [ ] Display if the business is currently open or closed
 - [ ] Hide a part of the page until a button is clicked
 - [ ] Add something with a JS library you haven’t used before
