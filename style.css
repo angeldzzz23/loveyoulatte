@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgb(238, 240, 220);
+  background-color: rgb(247, 241, 225);
 }
 
 /* editing the navigation bar */
@@ -33,14 +33,12 @@ nav ul li{
 
 a {
   text-decoration: none;
-     color: rgb(145, 37, 38);
-
+  color: black;
 
 }
 /* color change for menu */
 p{
-   color: rgb(145, 37, 38);
-
+  color: #555;
 }
 
 .container {
@@ -64,12 +62,6 @@ p{
   padding-left: 50px;
 }
 
-.col-2 p {
-   color: rgb(145, 37, 38);
-}
-
-
-
 .col-2 img {
   max-width: 100%;
   padding: 50px 0;
@@ -79,7 +71,6 @@ p{
 .col-2 h1 {
   font-size:  50px;
   line-height: 50px;
-   color: rgb(145, 37, 38);
 }
 
 /* Set up for btn */
@@ -138,7 +129,7 @@ p{
   margin: 0 auto 0px;
   position: relative;
   line-height: 60px;
- color: rgb(145, 37, 38);
+  color: black;
 }
 
 #ourcafeText{
@@ -146,12 +137,11 @@ p{
  text-align: center;
  padding-bottom: 20px;
  padding-top: 20px;
- color: rgb(145, 37, 38);
- }
+}
 
 .ourCafe::after {
   content: '';
-  background: #c4d6d6;
+  background: rgb(255, 187, 195);
   width: 80px;
   height: 5px;
   border-radius: 5px;
@@ -166,8 +156,7 @@ p{
   margin: 0 auto 80px;
   position: relative;
   line-height: 60px;
- color: rgb(145, 37, 38);
-
+  color: black;
 }
 
 
@@ -176,7 +165,7 @@ p{
 /* Adds a line after the products */
 .title::after {
   content: '';
-  background: #c4d6d6;
+background: rgb(255, 187, 195);
   width: 80px;
   height: 5px;
   border-radius: 5px;
@@ -187,8 +176,7 @@ p{
 }
 
 h4 {
-    color: rgb(145, 37, 38);
-
+  color: #555;
   font-weight: normal;
 }
 
