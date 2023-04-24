@@ -56,7 +56,7 @@
    <h2 class="ourCafe">About us ☕️</h2>
   <p id=ourcafeText> Welcome to Love You Latte, a coffee shop and cafe in Glendale inspired by the philosophy to bring people together to share the things we love most- good food, good coffee & good company. So, whether you're looking for a breakfast boost, a lunchtime snack, or one of our tasty beverages, you'll find something to hit the spot at Love You Latte.</p>
     
-   <h2 class="title">Featured Products 1</h2>
+   <h2 class="title">Featured Products</h2>
    <div class="row">
     {% for x in range(profile["featuredProducts"] | length) %}
     <div class="col-4">
@@ -71,74 +71,20 @@
     {% endfor %}
    </div>
 
-
-   <h2 class="title">Featured Products</h2>
-   <div class="row">
-
-
-     <div class="col-4">
-      <a href="productDetails.php?id=1">
-        <img src="./static/product-img/redbull.png" alt="">
-        <h4>Red bull</h4>
-        <p>$10.20</p>
-      </a>
-     </div>
-
-
-     <div class="col-4">
-      <a href="productDetails.php?id=2">
-        <img src="./static/product-img/yerbaOrigi.png" alt="">
-        <h4>Yerba Mate</h4>
-        <p>$15.00</p>
-      </a>
-     </div>
-
-     <div class="col-4">
-      <a href="productDetails.php?id=3">
-        <img src="./static/product-img/starblast.png" alt="">
-        <h4>Bang (star)</h4>
-        <p>$2.00</p>
-      </a>
-     </div>
-
-     <div class="col-4">
-      <a href="productDetails.php?id=4">
-        <img src="./static/product-img/rockstar.png" alt="">
-        <h4>rockstar</h4>
-        <p>$20.00</p>
-      </a>
-     </div>
-
-   </div>
-       <h2 class="title">Latest Products</h2>
-
+       <h2 class="title">Tea Based Products</h2>
        <div class="row">
 
+       {% for x in range(profile["LatestProducts"] | length) %}
          <div class="col-4">
           <a href="productDetails.php?id=6">
-            <img src="./static/product-img/purpleHaze.png" alt="">
-            <h4>Bang (purple)</h4>
-            <p>$210.00</p>
-          </a>
-         </div>
-
-         <div class="col-4">
-          <a href="productDetails.php?id=7">
-            <img src="./static/product-img/monster.png" alt="">
-            <h4>monster</h4>
-            <p>$29.00</p>
-          </a>
-         </div>
-
-         <div class="col-4">
-          <a href="productDetails.php?id=8">
-            <img src="./static/product-img/keyLime.png" alt="">
-            <h4>Bang (key)</h4>
-            <p>$210.00</p>
+             {{ profile["LatestProducts"][x]["image"] | safe }}
+            <h4>{{ profile["LatestProducts"][x]["name"] }}</h4>
+            <p>{{ profile["LatestProducts"][x]["price"] }}</p>
           </a>
          </div>
 
 
+      {% endfor %}
        </div>
  </div>
 

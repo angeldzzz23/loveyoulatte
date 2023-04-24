@@ -2,27 +2,47 @@
 	"about": "THIS IS AN ADVENTURE<br>The Best Coffee You Will Ever Have.",
 	"featuredProducts": [
 		{
-			"name": "Red bull",
-			"price":"$20.00",
-			"image": "<img src='/static/product-img/redbull.png'>"
+			"name": "Pink latte",
+			"price":"$6.25",
+			"image": "<img src='/static/product-img/pinkLatte.jpg'>"
 		}, 
 		{
-			"name": "Yerba Mate",
-			"price":"$15.00",
-			"image": "<img src='/static/product-img/yerbaOrigi.png'>"
+			"name": "Butterfly Pea Tea Latte",
+			"price":"$6.00",
+			"image": "<img src='/static/product-img/Butterfly_Pea_Tea_Latte.jpg'>"
 		}, 
 		{
-			"name": "rock start",
-			"price":"$15.00",
-			"image": "<img src='/static/product-img/rockstar.png'>"
+			"name": "Dirty Rose Latte",
+			"price":"$6.75",
+			"image": "<img src='/static/product-img/Dirty_Rose_Latte.jpg'>"
 		}, 
 		{
-			"name": "bang(star)",
-			"price":"$15.00",
-			"image": "<img src='/static/product-img/starblast.png'>"
+			"name": "Chocolate Chip Cookie Latte",
+			"price":"$6.25",
+			"image": "<img src='/static/product-img/Chocolate_Chip_Cookie_Latte.jpg'>"
 		}
+	],
 
+	"LatestProducts": [
+		{
+			"name": "Matcha Latte",
+			"price":"$6",
+			"image": "<img src='/static/product-img/Matcha_Latte.jpg'>"
+		}, 
+		{
+			"name": "Vanilla Matcha latte",
+			"price":"$6.50",
+			"image": "<img src='/static/product-img/Vanilla_Matcha_latte.jpg'>"
+		}, 
+		{
+			"name": "Peppermint Vanilla Matcha",
+			"price":"$6.25",
+			"image": "<img src='/static/product-img/Peppermint_Vanilla_Matcha.jpg'>"
+		}
 	]
 
 
 }
+
+
+
