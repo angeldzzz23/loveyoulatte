@@ -397,3 +397,14 @@ th:last-child {
 .btn-2:hover {
     background: #563434;
 }
+
+
+.footer2 {  
+/*left: 10px;  */
+/*bottom: 5px;  */
+/*right: 10px;   */
+width: 100%;  
+background-color: red;  
+text-align: center;  
+}  
+
