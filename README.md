@@ -12,6 +12,38 @@ My first experience at the LoveYouLatte coffee shop, located in Glendale, left a
 
 I was inspired to create my own project because of the way that LoveYouLatte made me feel. The welcoming and warm atmosphere made me want to create a similar experience for others, and the unique aesthetic provided me with inspiration for my own project.
 
+**Preview**
+<table>
+<tr>
+<td width="25%">
+<center>Creating an account</center>
+</td>
+<td width="25%">
+<center>Settings</center>
+</td>
+<td width="25%">
+<center>Matching Newsfeed</center>
+</td>
+<td width="25%">
+<center>Matching Notification</center>
+</td>
+</tr>
+<tr>
+<td width="25%">
+<img src="CreatingAnAccount.png"></img>
+</td>
+<td width="25%">
+<img src="Settings.png"></img>
+</td>
+<td width="25%">
+<img src="MatchingFeed.png"></img>
+</td>
+<td width="25%">
+<img src="MatchingNotification.png"></img>
+</td>
+</tr>
+</table>
+
 My order: 
 - Burrito de Chorizo (10/10)
 - Vanilla Latte (10/10)
