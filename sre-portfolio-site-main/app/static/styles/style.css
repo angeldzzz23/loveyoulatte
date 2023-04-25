@@ -30,6 +30,10 @@ nav ul li{
   margin-right: 20px;
 }
 
+article ul {
+ color: #555
+}
+
 
 a {
   text-decoration: none;
@@ -83,6 +87,24 @@ p{
   margin: 30px 0px;
   border-radius: 30px;
   transition: background 0.5s;
+}
+
+#theme-button {
+  display: inline-block;
+  background: black;
+  color: #fff;
+  padding: 8px 20px;
+  margin: 0px 0px;
+  border-radius: 20px;
+  transition: background 0.5s;
+  text-decoration: none;
+  border: none;
+
+}
+
+#theme-button:hover {
+  background-color: white;
+  color: black;
 }
 
 .btn:hover {
@@ -195,7 +217,7 @@ h4 {
   margin-top: 150px;
   width: 100%;
   padding: 100px 15%;
-  background:  #efefef;
+  background:  #fad0c3;
   display: flex;
 }
 
@@ -398,14 +420,82 @@ th:last-child {
     background: #563434;
 }
 
+.logo {
+  font-size: 20px; color: black;
+}
 
 .footer2 {  
-/*left: 10px;  */
-/*bottom: 5px;  */
-/*right: 10px;   */
 width: 100%;  
-background-color: red;  
+/*background-color: red;  */
 text-align: center;  
-align
+background-color: #63252a; 
+color: #fad0c3; text-align: center;
 }  
+
+/* dark mode begins here */
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+.dark-mode nav li a{
+   color: white;
+/*   background-color: white;*/
+}
+
+.dark-mode h2 {
+   color: white;
+}
+
+.dark-mode h1 {
+   color: white;
+}
+
+.dark-mode h3 {
+   color: white;
+}
+
+.dark-mode h4 {
+   color: white;
+}
+
+.dark-mode p {
+   color: white;
+}
+
+.dark-mode div a {
+   color: white;
+}
+
+.dark-mode div {
+  background-color: black;
+}
+
+.dark-mode .btn {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode .btn:hover {
+  background: #fad0c3;
+}
+
+.dark-mode article ul {
+   color: white;
+}
+
+.dark-mode #theme-button {
+ background-color: white;
+  color: black;
+}
+
+.dark-mode #theme-button:hover {
+ background-color: black;
+  color: white;
+}
+
+
+
+/*dark mode ends here*/
+
 
