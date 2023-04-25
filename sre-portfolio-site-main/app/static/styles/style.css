@@ -89,6 +89,24 @@ p{
   transition: background 0.5s;
 }
 
+#theme-button {
+  display: inline-block;
+  background: black;
+  color: #fff;
+  padding: 8px 20px;
+  margin: 0px 0px;
+  border-radius: 20px;
+  transition: background 0.5s;
+  text-decoration: none;
+  border: none;
+
+}
+
+#theme-button:hover {
+  background-color: white;
+  color: black;
+}
+
 .btn:hover {
     background: #563434;
 }
@@ -465,6 +483,17 @@ color: #fad0c3; text-align: center;
 .dark-mode article ul {
    color: white;
 }
+
+.dark-mode #theme-button {
+ background-color: white;
+  color: black;
+}
+
+.dark-mode #theme-button:hover {
+ background-color: black;
+  color: white;
+}
+
 
 
 /*dark mode ends here*/
