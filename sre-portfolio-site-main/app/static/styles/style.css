@@ -398,6 +398,9 @@ th:last-child {
     background: #563434;
 }
 
+.logo {
+  font-size: 20px; color: black;
+}
 
 .footer2 {  
 /*left: 10px;  */
@@ -408,4 +411,44 @@ background-color: red;
 text-align: center;  
 align
 }  
+
+/* dark mode begins here */
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+.dark-mode nav li a{
+   color: white;
+/*   background-color: white;*/
+}
+
+.dark-mode h2 {
+   color: white;
+}
+
+.dark-mode h1 {
+   color: white;
+}
+
+.dark-mode h3 {
+   color: white;
+}
+
+.dark-mode h4 {
+   color: white;
+}
+
+.dark-mode p {
+   color: white;
+}
+
+.dark-mode div a {
+   color: white;
+}
+
+
+
+/*dark mode ends here*/
+
 
