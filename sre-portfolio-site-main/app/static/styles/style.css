@@ -30,6 +30,10 @@ nav ul li{
   margin-right: 20px;
 }
 
+article ul {
+ color: #555
+}
+
 
 a {
   text-decoration: none;
@@ -456,6 +460,10 @@ color: #fad0c3; text-align: center;
 
 .dark-mode .btn:hover {
   background: #fad0c3;
+}
+
+.dark-mode article ul {
+   color: white;
 }
 
 
