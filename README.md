@@ -39,7 +39,7 @@ I was inspired to create my own project because of the way that LoveYouLatte mad
 <img src="drinkO.jpg"></img>
 </td>
 <td width="25%">
-<img src="IMG_0349.HEIC"></img>
+<img src="food.png"></img>
 </td>
 </tr>
 </table>
