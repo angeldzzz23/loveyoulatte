@@ -16,27 +16,27 @@ I was inspired to create my own project because of the way that LoveYouLatte mad
 <table>
 <tr>
 <td width="25%">
-<center>Creating an account</center>
+<center>beam</center>
 </td>
 <td width="25%">
-<center>Settings</center>
+<center>Art!</center>
 </td>
 <td width="25%">
-<center>Matching Newsfeed</center>
+<center>Vibes</center>
 </td>
 <td width="25%">
-<center>Matching Notification</center>
+<center>My Order</center>
 </td>
 </tr>
 <tr>
 <td width="25%">
-<img src="CreatingAnAccount.png"></img>
+<img src="bwhoBrunch.jpg"></img>
 </td>
 <td width="25%">
-<img src="Settings.png"></img>
+<img src="Khalo.jpg"></img>
 </td>
 <td width="25%">
-<img src="MatchingFeed.png"></img>
+<img src="drinkO.jpgg"></img>
 </td>
 <td width="25%">
 <img src="MatchingNotification.png"></img>
