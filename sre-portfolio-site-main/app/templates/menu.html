@@ -40,7 +40,7 @@
    <div class="row">
     {% for x in range(profile["featuredProducts"] | length) %}
     <div class="col-4">
-      <a href="productDetails.php?id=1">
+      <a href="">
         <!-- <img src="./static/product-img/redbull.png" alt=""> -->
          {{ profile["featuredProducts"][x]["image"] | safe }}
         <h4>{{ profile["featuredProducts"][x]["name"] }}</h4>
@@ -55,7 +55,7 @@
    <div class="row">
     {% for x in range(profile["full_teaBasedMenu"] | length) %}
     <div class="col-4">
-      <a href="productDetails.php?id=1">
+      <a href="">
         <!-- <img src="./static/product-img/redbull.png" alt=""> -->
          {{ profile["full_teaBasedMenu"][x]["image"] | safe }}
         <h4>{{ profile["full_teaBasedMenu"][x]["name"] }}</h4>
@@ -70,7 +70,8 @@
    <div class="row">
     {% for x in range(profile["expressoFull"] | length) %}
     <div class="col-4">
-      <a href="menu?id=2">
+      <!-- adding the href -->
+      <a href="">
         <!-- <img src="./static/product-img/redbull.png" alt=""> -->
          {{ profile["expressoFull"][x]["image"] | safe }}
         <h4>{{ profile["expressoFull"][x]["name"] }}</h4>
@@ -85,7 +86,7 @@
        <div class="row">
         {% for x in range(profile["Loose_Leaf_Tea_full"] | length) %}
             <div class="col-4">
-              <a href="productDetails.php?id=1">
+              <a href="">
                 <!-- <img src="./static/product-img/redbull.png" alt=""> -->
                  {{ profile["Loose_Leaf_Tea_full"][x]["image"] | safe }}
                 <h4>{{ profile["Loose_Leaf_Tea_full"][x]["name"] }}</h4>
@@ -110,8 +111,8 @@
 
 
 <div class="col-7">
-  <h3>The real website</h3>
-  <a href="https://www.loveyoulatte.cafe">Click Me</a>
+  <h3>Uno</h3>
+  <a href="https://www.loveyoulatte.cafe">Click Me to view</a>
 </div>
 
 
@@ -124,7 +125,7 @@
 </div>
 <!-- second footer -->
 <div class="footer2" style="background-color: #63252a; color: #fad0c3; text-align: center;">  
-  Made with ❤️ and ☕️
+  Made with ❤️ and ☕️ 
 </div>  
 <!-- end of footer -->
 
