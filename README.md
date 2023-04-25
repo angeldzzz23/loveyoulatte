@@ -20,15 +20,15 @@ The following **required** functionality is completed:
 
 The following **bonus** features are implemented:
 - [ ] A photo gallery
-- [ ] Navigation menu and multiple pages
+- [x] Navigation menu and multiple pages
 - [ ] An “overview” section linking to other sections with page anchors
-- [ ] onHover/onScroll animations
+- [x] onHover/onScroll animations
 - [x] A mobile responsive site
 - [x] More advanced use of flexbox/grid CSS
 - [ ] Display if the business is currently open or closed
 - [ ] Hide a part of the page until a button is clicked
 - [ ] Add something with a JS library you haven’t used before
-- [ ] dark mode
+- [x] dark mode
 
 
 ## TOOLS 
@@ -36,6 +36,7 @@ The following **bonus** features are implemented:
 - CentOS for deployment 
 - flask 
 - python
+- linux 
 
 
 ## References 
