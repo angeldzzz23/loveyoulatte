@@ -195,7 +195,7 @@ h4 {
   margin-top: 150px;
   width: 100%;
   padding: 100px 15%;
-  background:  #efefef;
+  background:  #fad0c3;
   display: flex;
 }
 
@@ -403,13 +403,11 @@ th:last-child {
 }
 
 .footer2 {  
-/*left: 10px;  */
-/*bottom: 5px;  */
-/*right: 10px;   */
 width: 100%;  
-background-color: red;  
+/*background-color: red;  */
 text-align: center;  
-align
+background-color: #63252a; 
+color: #fad0c3; text-align: center;
 }  
 
 /* dark mode begins here */
@@ -447,6 +445,18 @@ align
    color: white;
 }
 
+.dark-mode div {
+  background-color: black;
+}
+
+.dark-mode .btn {
+  background-color: white;
+  color: black;
+}
+
+.dark-mode .btn:hover {
+  background: #fad0c3;
+}
 
 
 /*dark mode ends here*/
