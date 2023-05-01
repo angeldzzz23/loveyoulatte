@@ -506,6 +506,11 @@ color: #fad0c3; text-align: center;
   transition: all 2s ease;
 }
 
+.active {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
 /*animation related reveleable ends here */
 
 
