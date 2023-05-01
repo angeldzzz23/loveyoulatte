@@ -44,7 +44,7 @@ I was inspired to create my own project because of the way that LoveYouLatte mad
 </tr>
 </table>
 
-My order: 
+## My order: 
 - Burrito de Chorizo (10/10)
 - Vanilla Latte (10/10)
 
