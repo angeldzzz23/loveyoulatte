@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>All products - RedStore</title>
+    <title>❤️YOULATTE</title>
     <link rel="stylesheet" href="./static/styles/style.css">
 
       <style >
@@ -55,11 +55,11 @@
    </div>
  </div>
 
-   <h2 class="ourCafe">About us ☕️</h2>
+   <h2 class="ourCafe">About us 🫶 📜 </h2>
   <p id=ourcafeText> Welcome to Love You Latte, a coffee shop and cafe in Glendale inspired by the philosophy to bring people together to share the things we love most- good food, good coffee & good company. So, whether you're looking for a breakfast boost, a lunchtime snack, or one of our tasty beverages, you'll find something to hit the spot at Love You Latte.</p>
     
-   <h2 class="title">Signature Drinks</h2>
-   <div class="row">
+   <h2 class="title revealable">Signature Drinks ☕️</h2>
+   <div class="row revealable">
     {% for x in range(profile["featuredProducts"] | length) %}
     <div class="col-4">
       <a href="menu">
@@ -73,8 +73,8 @@
     {% endfor %}
    </div>
 
-       <h2 class="title">Tea Based Products</h2>
-       <div class="row">
+       <h2 class="title revealable">Tea Based Products 🍵</h2>
+       <div class="row revealable">
 
        {% for x in range(profile["LatestProducts"] | length) %}
          <div class="col-4">

@@ -495,7 +495,28 @@ color: #fad0c3; text-align: center;
 }
 
 
-
 /*dark mode ends here*/
+
+/* Animation related reveleable starts here*/
+
+.revealable {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+.active {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+/*animation related reveleable ends here */
+
+
+
+
+
+
 
 

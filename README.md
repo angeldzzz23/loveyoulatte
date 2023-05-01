@@ -83,6 +83,8 @@ The following **bonus** features are implemented:
 - flask 
 - python
 - linux 
+- Javascript
+- html/css
 
 ## Installation
 
