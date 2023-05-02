@@ -183,10 +183,19 @@ def add_timeline():
     #getting the type 
     atype= request.form.get('type', None)
 
-    # TODO
-    # check that the type is correct 
+    types = ['tea', 'coffee', 'matcha', 'signature']
 
-    # TODO
+    #making sure that type is correct 
+    if atype: 
+        atype = atype.lower() 
+
+    print(atype)
+    if (atype in types) ==  False:
+        return "Invalid type", 400
+
+    # TODO: price validation 
+
+
     # return error if there is no image 
     # image 
     f = request.files['image']
@@ -204,8 +213,7 @@ def add_timeline():
     if not price: 
         return "Invalid price", 400
 
-    if not atype: 
-        return "invalid type"
+   
 
     f.save(os.path.join(uploads_path , newName))  # save the file into the uploads folder
 
