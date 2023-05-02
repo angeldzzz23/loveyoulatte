@@ -86,7 +86,26 @@ mydb.create_tables([TimelinePost])
 profile = json.loads(open("app/profile.json", "r").read())
 @app.route('/')
 def index():
-    return render_template('index.html', title="MLH Fellow",profile=profile,  url=os.getenv("URL"))
+    # get the 
+
+
+    # get all of the products 
+    productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
+
+    products = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+
+    for product in products:
+        n = {'id': product.id,'name': product.name, 'imageName':product.imageName, 'price':str(round(product.price, 2)), 'image_url': product.image_url}
+        productsWithCategories[product.atype].append(n)
+
+
+    print(productsWithCategories)
+
+
+
+
+
+    return render_template('index.html', title="MLH Fellow",profile=profile,productsWithCategories=productsWithCategories,url=os.getenv("URL"))
 
 @app.route('/menu')
 def menu():
@@ -186,11 +205,12 @@ def add_timeline():
     f.save(os.path.join(uploads_path , newName))  # save the file into the uploads folder
 
     url = str(request.base_url)
-    new_url = url.replace('api/timeline_post', "static/uploads/" + newName)
+    new_url = url.replace('api/products', "static/uploads/" + newName)
 
     image_url = new_url
 
-    post = TimelinePost.create(name=name, imageName=newName, price=price,image_url=image_url,atype=atype )
+    post = TimelinePost.create(name=name, imageName=newName, price=price,image_url=new_url,atype=atype )
+
 
     return model_to_dict(post)
 
