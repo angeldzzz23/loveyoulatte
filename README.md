@@ -120,7 +120,143 @@ You should get a response like this in the terminal:
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
+You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! \
+
+# Product endpoints 
+
+# Creating Product
+
+### Base endpoint 
+- BASE URL: http://loveyoulatte.duckdns.org:5000/product/
+
+## Creating a product 
+
+### Endpoint Info
+  - endpoint: http://loveyoulatte.duckdns.org:5000/product/create
+  - Type: POST
+
+### Body
+- [x] image property 
+- [x] Price Property 
+- [x] name property 
+
+### Response
+- 200 OK if product is create 
+```bash
+     {
+       "atype": "matcha",
+       "created_at": "Mon, 01 May 2023 21:22:51 GMT",
+       "id": 8,
+       "imageName": "7e328db3-b443-4f15-a45a-87847bf9ae1a.jpg",
+       "image_url": "http://127.0.0.1:5000/api/products",
+       "name": "Strawberry Matcha",
+       "price": "20.00"
+     }
+```
+
+- 404 Error if product already exists or if product is missing a property 
+```bash
+     {
+      message: "error type"
+     }
+```
+
+
+##  Getting All products
+
+### Endpoint Info
+  - endpoint: http://loveyoulatte.duckdns.org:5000/product/
+  - Type: GET
+
+### Body
+- [x] can be empty 
+
+### Response
+- 200 OK if product is create 
+```bash
+     {
+       [
+       {
+        id: 1
+        "image_url": "http://127.0.0.1:5000/api/products",
+        price: 20.00
+        name: "Hot Chocolate"
+        "imageName": "7e328db3-b443-4f15-a45a-87847bf9ae1a.jpg",
+       },
+       {
+        id: 2
+        image: "url"
+        price: 10.00
+        name: "Hot Chocolate 2"
+       },
+       {
+        id: 3
+        image: "url"
+        price: 50.00
+        name: "Hot Chocolate 3"
+       },
+       {
+        id: 4
+        image: "url"
+        price: 20.00
+        name: "Hot Chocolate 4"
+       },
+         {
+        id: 5
+        image: "url"
+        price: 10.00
+        name: "Hot Chocolate 5"
+       },
+
+       ]
+     }
+```
+
+- 404 Error if product already exists or if product is missing a property 
+```bash
+     {
+      message: "error type"
+     }
+```
+
+
+
+
+##  Deleting  Single Product 
+
+### Endpoint Info
+  - endpoint: http://loveyoulatte.duckdns.org:5000/product/{ID}
+  - Type: DELTE
+
+### Body
+- [x] can be empty 
+
+### Response
+- 200 OK if products 
+```bash
+     {
+     }
+```
+
+- 404 Error if product already exists or if product is missing a property 
+```bash
+     {
+      message: "error type"
+     }
+```
+
+\
+
+
+
+
+
+
+
+
+
+
+
 
 ## References 
 - https://github.com/MLH-Fellowship/sre-portfolio-site (used just the flask starter code)
