@@ -36,33 +36,47 @@
       </div>
 
       <!-- the end of header -->
-      <div class="s-container">
+  <div class="s-container">
+
+
+<!--  <h2 class="title revealable">Signature Drinks☕️</h2>
+   <div class="row revealable">
+    {% for x in range(productsWithCategories['signature'] | length) %}
+    <div class="col-4">
+      <a href="menu">
+        <img src="{{ productsWithCategories['signature'][x]['image_url'] }}"  alt="">
+        <h4>{{ productsWithCategories['signature'][x]['name'] }}</h4>
+        <p>{{  '$' + productsWithCategories['signature'][x]['price']}}</p>
+      </a>
+     </div>  
+
+    {% endfor %}
+   </div> -->
+
           <!-- Featured products -->
  <div class="small-container">
    <h2 class="title">Signature Drinks</h2>
    <div class="row">
-    {% for x in range(profile["featuredProducts"] | length) %}
+    {% for x in range(productsWithCategories["signature"] | length) %}
     <div class="col-4">
       <a href="">
-        <!-- <img src="./static/product-img/redbull.png" alt=""> -->
-         {{ profile["featuredProducts"][x]["image"] | safe }}
-        <h4>{{ profile["featuredProducts"][x]["name"] }}</h4>
-        <p>{{ profile["featuredProducts"][x]["price"] }}</p>
+        <img src="{{ productsWithCategories['signature'][x]['image_url'] }}"  alt="">
+        <h4>{{ productsWithCategories['signature'][x]['name'] }}</h4>
+        <p>{{  '$' + productsWithCategories['signature'][x]['price']}}</p>
       </a>
      </div>  
 
     {% endfor %}
    </div>
 
-    <h2 class="title">Matcha</h2>
+  <h2 class="title">Matcha</h2>
    <div class="row">
-    {% for x in range(profile["full_teaBasedMenu"] | length) %}
+     {% for x in range(productsWithCategories["matcha"] | length) %}
     <div class="col-4">
       <a href="">
-        <!-- <img src="./static/product-img/redbull.png" alt=""> -->
-         {{ profile["full_teaBasedMenu"][x]["image"] | safe }}
-        <h4>{{ profile["full_teaBasedMenu"][x]["name"] }}</h4>
-        <p>{{ profile["full_teaBasedMenu"][x]["price"] }}</p>
+       <img src="{{ productsWithCategories['matcha'][x]['image_url'] }}"  alt="">
+        <h4>{{ productsWithCategories['matcha'][x]['name'] }}</h4>
+        <p>{{  '$' + productsWithCategories['matcha'][x]['price']}}</p>
       </a>
      </div>  
 
@@ -70,15 +84,14 @@
    </div>
 
     <h2 class="title">Espresso</h2>
-   <div class="row">
-    {% for x in range(profile["expressoFull"] | length) %}
+    <div class="row">
+    {% for x in range(productsWithCategories["coffee"] | length) %}
     <div class="col-4">
       <!-- adding the href -->
       <a href="">
-        <!-- <img src="./static/product-img/redbull.png" alt=""> -->
-         {{ profile["expressoFull"][x]["image"] | safe }}
-        <h4>{{ profile["expressoFull"][x]["name"] }}</h4>
-        <p>{{ profile["expressoFull"][x]["price"] }}</p>
+      <img src="{{ productsWithCategories['coffee'][x]['image_url'] }}"  alt="">
+      <h4>{{ productsWithCategories['coffee'][x]['name'] }}</h4>
+      <p>{{  '$' + productsWithCategories['coffee'][x]['price']}}</p>
       </a>
      </div>  
 
@@ -87,13 +100,12 @@
         <h2 class="title">Loose Leaf Tea</h2>
 
        <div class="row">
-        {% for x in range(profile["Loose_Leaf_Tea_full"] | length) %}
+        {% for x in range(productsWithCategories["tea"] | length) %}
             <div class="col-4">
               <a href="">
-                <!-- <img src="./static/product-img/redbull.png" alt=""> -->
-                 {{ profile["Loose_Leaf_Tea_full"][x]["image"] | safe }}
-                <h4>{{ profile["Loose_Leaf_Tea_full"][x]["name"] }}</h4>
-                <p>{{ profile["Loose_Leaf_Tea_full"][x]["price"] }}</p>
+                <img src="{{ productsWithCategories['tea'][x]['image_url'] }}"  alt="">
+                 <h4>{{ productsWithCategories['tea'][x]['name'] }}</h4>
+                 <p>{{  '$' + productsWithCategories['tea'][x]['price']}}</p>
               </a>
              </div>  
             {% endfor %}        

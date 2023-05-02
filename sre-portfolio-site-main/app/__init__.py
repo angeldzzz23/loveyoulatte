@@ -99,9 +99,6 @@ def index():
         productsWithCategories[product.atype].append(n)
 
 
-    print(productsWithCategories)
-
-
 
 
 
@@ -109,10 +106,18 @@ def index():
 
 @app.route('/menu')
 def menu():
-    username = request.args.get('id')
-    print('the id', username)
 
-    return render_template('menu.html', title="menu", profile=profile)
+       # get all of the products 
+    productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
+
+    products = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+
+    for product in products:
+        n = {'id': product.id,'name': product.name, 'imageName':product.imageName, 'price':str(round(product.price, 2)), 'image_url': product.image_url}
+        productsWithCategories[product.atype].append(n)
+
+
+    return render_template('menu.html', title="menu", profile=profile, productsWithCategories=productsWithCategories)
 
 
 
