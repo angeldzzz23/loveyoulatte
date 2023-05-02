@@ -104,11 +104,21 @@ def menu():
 def delete(product_id):
     product_id = product_id
 
+    cursor = mydb.cursor()
+    sql = "Select * from timelinepost where id=" + str(product_id)
+    cursor.execute(sql)
+    results = cursor.fetchall()
 
-    # TimelinePost.delete_by_id(post_id)
+    try: 
+        # deletes the image 
+        os.remove(os.path.join(uploads_path , results[0][3]))
+    except: 
+        return {'error': 'file not found'}
 
 
-    return {'id': product_id}
+    TimelinePost.delete_by_id(product_id)
+
+    return {}
 
 
 
