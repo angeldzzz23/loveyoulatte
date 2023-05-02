@@ -46,18 +46,9 @@ def get_uplaod_file_name(userpic, filename):
 
     newName = str(uuid.uuid4()) + '.' + ext
 
-    print("uid",)
-    print('here', u'photos/%s/profileImg//%s' % (str(userpic.user.id),newName))
-
-
     if userpic.title == "profile_image":
         return u'photos/%s/profileImg//%s' % (str(userpic.user.id),newName)
     return u'photos/%s/%s' % (str(userpic.user.id),newName)
-
-
-
-#
-#
 
 class TimelinePost(Model):
     """
@@ -155,7 +146,6 @@ def get_products():
     # matcha
     # Signature Drinks
     productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
-    print(productsWithCategories)
 
     products = TimelinePost.select().order_by(TimelinePost.created_at.desc())
 
@@ -189,7 +179,6 @@ def add_timeline():
     if atype: 
         atype = atype.lower() 
 
-    print(atype)
     if (atype in types) ==  False:
         return "Invalid type", 400
 
