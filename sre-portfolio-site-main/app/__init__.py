@@ -96,44 +96,27 @@ def menu():
     return render_template('menu.html', title="menu", profile=profile)
 
 
-@app.route('/img-upload', methods=['POST'])
-def upload_image():
-
-    f = request.files['image']
 
 
-    f.save(os.path.join(uploads_path , f.filename))  # save the file into the uploads folder
+# deleting products 
 
-    BASE_DIR = os.getcwd()
-
-    print('base ', BASE_DIR)
-
-    print(url_for('upload_image',filename=f.filename))
-
-    # newFile = Mealplan(name=f.filename)  # only save the filename to database
-    # db.session.add(newFile)
-    # db.session.commit()
-
-    return jsonify({"Done!" : "The file has been uploaded."})
+@app.route('/api/products/<product_id>', methods=["DELETE"])
+def delete(product_id):
+    product_id = product_id
 
 
-@app.route("/api/timeline_post", methods=["GET"])
-def get_timeline():
-    """
-    Retrieves all timeline posts in descending order.
-    """
+    # TimelinePost.delete_by_id(post_id)
 
-    posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
-    timeline = [model_to_dict(post) for post in posts]
 
-    return {"timeline": timeline}
+    return {'id': product_id}
+
 
 
 # this will get products 
 @app.route("/api/products", methods=["GET"])
 def get_products():
 
-     # tea 
+    # tea 
     # coffee
     # matcha
     # Signature Drinks
@@ -150,8 +133,12 @@ def get_products():
     return productsWithCategories
 
 
+
+
+
 @app.route("/api/products", methods=["POST"])
 def add_timeline():
+    
     """
     Adds a new post to the timeline.
     """
@@ -162,6 +149,11 @@ def add_timeline():
     #getting the type 
     atype= request.form.get('type', None)
 
+    # TODO
+    # check that the type is correct 
+
+    # TODO
+    # return error if there is no image 
     # image 
     f = request.files['image']
 
@@ -193,7 +185,7 @@ def add_timeline():
     return model_to_dict(post)
 
 
-
+# deleting endpoint 
 
 
 
