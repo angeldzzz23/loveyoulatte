@@ -85,6 +85,7 @@ The following **bonus** features are implemented:
 - linux 
 - Javascript
 - html/css
+- Bash (Scripting)
 
 ## Installation
 
