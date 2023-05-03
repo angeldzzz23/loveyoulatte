@@ -29,7 +29,7 @@ enum ProductTypes {
     }
 }
 
-class AddingProductViewController: UIViewController {
+class AddingProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let imageView: UIImageView = {
         let imgview = UIImageView()
@@ -109,8 +109,22 @@ class AddingProductViewController: UIViewController {
     // th
     @objc func imageviewWasPressed(gesture: UIGestureRecognizer) {
         if let imageView = gesture.view as? UIImageView {
-               print("Image Tapped")
-               //Here you can initiate your new ViewController
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.allowsEditing = true
+            
+            picker.sourceType = .photoLibrary
+            
+//            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+//                picker.sourceType = .camera
+//            } else {
+//                picker.sourceType = .photoLibrary
+//            }
+            
+            present(picker, animated: true, completion: nil)
+            
+            
+               
 
         }
         
@@ -164,6 +178,14 @@ class AddingProductViewController: UIViewController {
         return stackview
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        let size = CGSize(width: 250, height: 250)
+//        let scaleImage = image.af.imageScaled(to: size, scale: nil)
+        imageView.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     func setUp() {
         view.addSubview(verticalSelect)
@@ -199,8 +221,7 @@ class AddingProductViewController: UIViewController {
             // add view to subview
             view.addSubview(v)
         }
-        // making textifled be password
-        priceTextfield.isSecureTextEntry = true
+        
         
         // set up for textfield
         setUpTextfield(textfield: nameTextfield, defaultText: "Enter Product Name")
