@@ -7,6 +7,29 @@
 
 import UIKit
 
+
+enum ProductTypes {
+    case coffee
+    case matcha
+    case signature
+    case tea
+    
+    // this returns the product
+    func getStrRepresentation()->String {
+        switch self{
+        case .coffee:
+            return "coffee"
+        case .matcha:
+            return "matcha"
+        case .signature:
+            return "signature"
+        case .tea:
+            return "tea"
+        }
+    }
+}
+
+
 class AddingProductViewController: UIViewController {
 
     let imageView: UIImageView = {
@@ -22,7 +45,8 @@ class AddingProductViewController: UIViewController {
     
     private let createProduct = UIButton(type: .system)
   
-    var types = ["coffee", "matcha", "signature", "tea"]
+    var typesEn: [ProductTypes] = [.coffee, .matcha, .signature, .tea]
+    
     
     // this is a horizontal stack view that is used to hold the donthaveAccLbl and createAccbtn
     private let hstackview: UIStackView = {
@@ -54,7 +78,6 @@ class AddingProductViewController: UIViewController {
     private let verticalSelect: UIStackView = {
         let stackview: UIStackView = UIStackView()
         stackview.axis = .vertical
-        stackview.backgroundColor = .green
         stackview.distribution = .fillEqually
         stackview.alignment = .leading
         stackview.translatesAutoresizingMaskIntoConstraints = false
@@ -81,8 +104,27 @@ class AddingProductViewController: UIViewController {
         
     }
     
+    var selectedType: ProductTypes? = nil
+    
+    
     @objc func buttonWasPressed(button: UIButton) {
-        print("title", button.titleLabel?.text)
+        
+        // deselect all of the buttons
+        
+        allButtons.forEach { v in
+            v.setImage(UIImage(systemName: "circle"), for: .normal)
+        }
+        
+        button.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+        
+        let indexOfbutton = allButtons.firstIndex(of: button) // 0
+        
+        selectedType = typesEn[indexOfbutton!]
+        
+        print(selectedType?.getStrRepresentation())
+        
+        
+        
     }
     
     
@@ -117,12 +159,12 @@ class AddingProductViewController: UIViewController {
     func setUp() {
         view.addSubview(verticalSelect)
         
-        types.forEach { type in
+        typesEn.forEach { type in
             let sv = generateHorizontalSV()
             let btn = createButton()
             allButtons.append(btn)
             sv.addArrangedSubview(btn)
-            sv.addArrangedSubview(createLBL(with: type))
+            sv.addArrangedSubview(createLBL(with: type.getStrRepresentation()))
             verticalSelect.addArrangedSubview(sv)
             
         }
