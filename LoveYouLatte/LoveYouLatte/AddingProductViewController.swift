@@ -22,7 +22,7 @@ class AddingProductViewController: UIViewController {
     
     private let createProduct = UIButton(type: .system)
   
-
+    var types = ["coffee", "matcha", "signature", "tea"]
     
     // this is a horizontal stack view that is used to hold the donthaveAccLbl and createAccbtn
     private let hstackview: UIStackView = {
@@ -46,8 +46,44 @@ class AddingProductViewController: UIViewController {
     private let selectLbl: UILabel = {
         let lbl = UILabel()
         lbl.text = "Select Product Type"
+        lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
+    
+    // this will contain all of the horizontal seelct
+    private let verticalSelect: UIStackView = {
+        let stackview: UIStackView = UIStackView()
+        stackview.axis = .vertical
+        stackview.backgroundColor = .green
+        stackview.distribution = .fillEqually
+        stackview.alignment = .leading
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        return stackview
+    }()
+    
+    
+    private var allButtons = [UIButton]()
+    
+    func createButton() -> UIButton {
+        let btn = UIButton(type: .system)
+        btn.setImage(UIImage(systemName: "circle"), for: .normal)
+        btn.addTarget(self, action: #selector(buttonWasPressed), for: .touchUpInside)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        return btn
+    }
+    
+    func createLBL(with text: String)-> UILabel {
+        let lbl = UILabel()
+        lbl.text = text
+        lbl.textAlignment = .left
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+       return lbl
+        
+    }
+    
+    @objc func buttonWasPressed(button: UIButton) {
+        print("title", button.titleLabel?.text)
+    }
     
     
     override func viewDidLoad() {
@@ -67,9 +103,32 @@ class AddingProductViewController: UIViewController {
         textfield.font = UIFont.systemFont(ofSize: 16)
     }
     
+    func generateHorizontalSV() -> UIStackView {
+        let stackview: UIStackView = UIStackView()
+        stackview.axis = .horizontal
+        stackview.spacing = 5
+        stackview.alignment = .leading
+        
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        return stackview
+    }
     
     
     func setUp() {
+        view.addSubview(verticalSelect)
+        
+        types.forEach { type in
+            let sv = generateHorizontalSV()
+            let btn = createButton()
+            allButtons.append(btn)
+            sv.addArrangedSubview(btn)
+            sv.addArrangedSubview(createLBL(with: type))
+            verticalSelect.addArrangedSubview(sv)
+            
+        }
+
+
+        
         imageView.backgroundColor = .yellow
         
         // setting the background color of the imagefield
@@ -78,7 +137,7 @@ class AddingProductViewController: UIViewController {
         
         // looping to add them to a
         
-        [imageView, nameTextfield, priceTextfield, createProduct].forEach { v in
+        [imageView, nameTextfield, priceTextfield, selectLbl].forEach { v in
             // enable programatic constraints
             v.translatesAutoresizingMaskIntoConstraints = false
             // add view to subview
@@ -135,22 +194,29 @@ class AddingProductViewController: UIViewController {
             priceTextfield.heightAnchor.constraint(equalToConstant: 41)
         ])
         
-        
-        
-        // adding log in button
         NSLayoutConstraint.activate([
-            // constraints top anchor of email to the bottom anchor of the image field with padding of 32
-            createProduct.topAnchor.constraint(equalTo: priceTextfield.bottomAnchor, constant: padding),
-            createProduct.leadingAnchor.constraint(equalTo: nameTextfield.leadingAnchor),
-            createProduct.trailingAnchor.constraint(equalTo: nameTextfield.trailingAnchor),
-            createProduct.heightAnchor.constraint(equalToConstant: 50)
+            selectLbl.leadingAnchor.constraint(equalTo: priceTextfield.leadingAnchor),
+            selectLbl.topAnchor.constraint(equalTo: priceTextfield.bottomAnchor, constant: padding)
         ])
         
-        // adding the dont have account info
         NSLayoutConstraint.activate([
-            vStackviw.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            vStackviw.topAnchor.constraint(equalTo: createProduct.bottomAnchor, constant: 23)
+            verticalSelect.leadingAnchor.constraint(equalTo: selectLbl.leadingAnchor),
+            verticalSelect.topAnchor.constraint(equalTo: selectLbl.bottomAnchor, constant: 20)
         ])
+        
+        
+        
+        
+        
+//        // adding log in button
+//        NSLayoutConstraint.activate([
+//            // constraints top anchor of email to the bottom anchor of the image field with padding of 32
+//            createProduct.topAnchor.constraint(equalTo: selectLbl.bottomAnchor, constant: padding),
+//            createProduct.leadingAnchor.constraint(equalTo: nameTextfield.leadingAnchor),
+//            createProduct.trailingAnchor.constraint(equalTo: nameTextfield.trailingAnchor),
+//            createProduct.heightAnchor.constraint(equalToConstant: 50)
+//        ])
+//
         
     }
     
