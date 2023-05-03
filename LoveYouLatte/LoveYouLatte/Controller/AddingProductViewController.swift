@@ -205,25 +205,37 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
     
     
     @objc func createProductButtonWasPressed() {
-//        let image = imageView.image!
-//        var param: Parameters = ["name": "mocha frappe", "price": "6.20", "type": "coffee"]
+        let image = imageView.image!
         
         do {
             try validateFields()
             
         } catch Validation.invalidProductName {
-            print("invalid product name")
+            self.showAlert(with: "Invalid Product Name")
+            
 
         } catch Validation.invalidPrice {
-            print("invalid price")
-        } catch Validation.invalidProductType {
-            print("invalid product type")
+            self.showAlert(with: "Invalid Price")
             
+        } catch Validation.invalidProductType {
+            self.showAlert(with: "Invalid Product Type")
+            
+            
+        } catch Validation.invalidImage {
+            self.showAlert(with: "Invalid Please add image")
         } catch {
-//            pri
+            self.showAlert(with: "Some other Error. BRBRBRRBRBRBRBR")
         }
         
-//        API.uploadingImage(parameters: param, mediaImage: .init(withImage: image, forKey: "image")!)
+        // we can add the image
+        
+        
+        var param: Parameters = ["name": nameTextfield.text!, "price": priceTextfield.text!, "type": selectedType!.getStrRepresentation()]
+
+        API.uploadingImage(parameters: param, mediaImage: .init(withImage: image, forKey: "image")!)
+        
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -367,5 +379,24 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
 
 }
 
+
+
+extension UIViewController {
+     func showAlert(with test: String) {
+        var dialogMessage = UIAlertController(title: "Confirm", message: test, preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            // We dont print anything
+         })
+        
+        //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+        // Present Alert to
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
+    
+    
+}
 
 
