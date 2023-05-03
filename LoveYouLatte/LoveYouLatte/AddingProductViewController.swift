@@ -29,7 +29,6 @@ enum ProductTypes {
     }
 }
 
-
 class AddingProductViewController: UIViewController {
 
     let imageView: UIImageView = {
@@ -107,6 +106,16 @@ class AddingProductViewController: UIViewController {
     var selectedType: ProductTypes? = nil
     
     
+    // th
+    @objc func imageviewWasPressed(gesture: UIGestureRecognizer) {
+        if let imageView = gesture.view as? UIImageView {
+               print("Image Tapped")
+               //Here you can initiate your new ViewController
+
+        }
+        
+    }
+    
     @objc func buttonWasPressed(button: UIButton) {
         
         // deselect all of the buttons
@@ -172,6 +181,11 @@ class AddingProductViewController: UIViewController {
 
         
         imageView.backgroundColor = .yellow
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageviewWasPressed))
+          
+          // 2. add the gesture recognizer to a view
+        imageView.addGestureRecognizer(tapGesture)
+        imageView.isUserInteractionEnabled = true
         
         // setting the background color of the imagefield
         imageView.image = UIImage(named: "Logo")
