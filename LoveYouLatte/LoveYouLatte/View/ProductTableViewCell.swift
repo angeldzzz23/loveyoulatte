@@ -8,7 +8,11 @@
 import UIKit
 
 
+
 class ProductTableViewCell: UITableViewCell {
+    
+    
+    
     
     static let identifier = "ProductFeedItemTableViewCell"
     
@@ -114,8 +118,6 @@ class ProductTableViewCell: UITableViewCell {
         
         
     }
-    
-    
     
     
     required init?(coder: NSCoder) {

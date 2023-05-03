@@ -29,6 +29,14 @@ enum ProductTypes {
     }
 }
 
+enum Validation: Error {
+    case invalidProductName
+    case invalidPrice
+    case invalidProductType // must check at least one product
+    case invalidImage
+}
+
+
 class AddingProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let imageView: UIImageView = {
@@ -105,8 +113,63 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
     
     var selectedType: ProductTypes? = nil
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = .systemGray6
+        setUp()
+        // Do any additional setup after loading the view.
+    }
     
-    // th
+    // validation
+    func validateFields() throws {
+        
+
+        // validation for name textfield
+        if nameTextfield.text == nil {
+            throw Validation.invalidProductName
+        }
+        
+        if let productName = nameTextfield.text {
+            if productName.trimmingCharacters(in: .whitespaces).isEmpty {
+                throw Validation.invalidProductName
+            }
+        }
+        
+       
+        // validation for product textield
+        
+        if priceTextfield.text == nil {
+            throw Validation.invalidPrice
+        }
+        
+        if let priceTextfield = priceTextfield.text {
+            if priceTextfield.trimmingCharacters(in: .whitespaces).isEmpty {
+                throw Validation.invalidPrice
+            }
+        }
+        
+        // check if price is a double or an integer
+        if let price = priceTextfield.text {
+            if (Int(price) == nil) && (Double(price) == nil) {
+                throw Validation.invalidPrice
+            }
+        }
+        
+        if selectedType == nil {
+            throw Validation.invalidProductType
+        }
+        
+        
+        if imageView.image == nil {
+            throw Validation.invalidImage
+        }
+
+    }
+    
+    
+
+    // MARK: Actions
     @objc func imageviewWasPressed(gesture: UIGestureRecognizer) {
         if let imageView = gesture.view as? UIImageView {
             let picker = UIImagePickerController()
@@ -115,17 +178,9 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
             
             picker.sourceType = .photoLibrary
             
-//            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-//                picker.sourceType = .camera
-//            } else {
-//                picker.sourceType = .photoLibrary
-//            }
-            
             present(picker, animated: true, completion: nil)
             
             
-               
-
         }
         
     }
@@ -149,13 +204,31 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @objc func createProductButtonWasPressed() {
+//        let image = imageView.image!
+//        var param: Parameters = ["name": "mocha frappe", "price": "6.20", "type": "coffee"]
+        
+        do {
+            try validateFields()
+            
+        } catch Validation.invalidProductName {
+            print("invalid product name")
 
-        view.backgroundColor = .systemGray6
-        setUp()
-        // Do any additional setup after loading the view.
+        } catch Validation.invalidPrice {
+            print("invalid price")
+        } catch Validation.invalidProductType {
+            print("invalid product type")
+            
+        } catch {
+//            pri
+        }
+        
+//        API.uploadingImage(parameters: param, mediaImage: .init(withImage: image, forKey: "image")!)
     }
+    
+    
+    
+    // MARK: UI set Up
     
     func setUpTextfield(textfield: UITextField, defaultText: String) {
         textfield.backgroundColor = ColorConstants.gray
@@ -174,27 +247,6 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         
         stackview.translatesAutoresizingMaskIntoConstraints = false
         return stackview
-    }
-    
-    
-//    func presentingErrorIfExists() {
-//        if imageView.
-//
-//    }
-    
-    @objc func createProductButtonWasPressed() {
-        let image = imageView.image!
-        var param: Parameters = ["name": "mocha frappe", "price": "6.20", "type": "coffee"]
-        
-//        API.uploadingImage(parameters: param, mediaImage: .init(withImage: image, forKey: "image")!)
-    }
-    
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.editedImage] as! UIImage
-        let size = CGSize(width: 250, height: 250)
-        imageView.image = image
-        dismiss(animated: true, completion: nil)
     }
     
     
@@ -303,7 +355,15 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         
     }
     
-   
+    
+    // MARK: ImagePicker
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        let size = CGSize(width: 250, height: 250)
+        imageView.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 }
 
