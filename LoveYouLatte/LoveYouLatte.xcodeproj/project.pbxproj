@@ -15,6 +15,8 @@
 		1C971A7B2A02E299007E5CFF /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C971A7A2A02E299007E5CFF /* ProductTableViewCell.swift */; };
 		1C971A7D2A02E3AF007E5CFF /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C971A7C2A02E3AF007E5CFF /* API.swift */; };
 		1C971A7F2A02E465007E5CFF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C971A7E2A02E465007E5CFF /* Product.swift */; };
+		1C971A832A02FC97007E5CFF /* AddingProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C971A822A02FC97007E5CFF /* AddingProductViewController.swift */; };
+		1C971A852A03004F007E5CFF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C971A842A03004F007E5CFF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1C971A7A2A02E299007E5CFF /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		1C971A7C2A02E3AF007E5CFF /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		1C971A7E2A02E465007E5CFF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		1C971A822A02FC97007E5CFF /* AddingProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingProductViewController.swift; sourceTree = "<group>"; };
+		1C971A842A03004F007E5CFF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				1C971A662A02D9F5007E5CFF /* AppDelegate.swift */,
 				1C971A682A02D9F5007E5CFF /* SceneDelegate.swift */,
 				1C971A6A2A02D9F5007E5CFF /* ViewController.swift */,
+				1C971A822A02FC97007E5CFF /* AddingProductViewController.swift */,
+				1C971A842A03004F007E5CFF /* Constants.swift */,
 				1C971A7C2A02E3AF007E5CFF /* API.swift */,
 				1C971A7E2A02E465007E5CFF /* Product.swift */,
 				1C971A7A2A02E299007E5CFF /* ProductTableViewCell.swift */,
@@ -144,11 +150,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C971A6B2A02D9F5007E5CFF /* ViewController.swift in Sources */,
+				1C971A832A02FC97007E5CFF /* AddingProductViewController.swift in Sources */,
 				1C971A672A02D9F5007E5CFF /* AppDelegate.swift in Sources */,
 				1C971A692A02D9F5007E5CFF /* SceneDelegate.swift in Sources */,
 				1C971A7B2A02E299007E5CFF /* ProductTableViewCell.swift in Sources */,
 				1C971A7D2A02E3AF007E5CFF /* API.swift in Sources */,
 				1C971A7F2A02E465007E5CFF /* Product.swift in Sources */,
+				1C971A852A03004F007E5CFF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

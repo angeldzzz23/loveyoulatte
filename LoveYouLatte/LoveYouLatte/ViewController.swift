@@ -24,33 +24,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        title = "edit"
+        title = "Products"
         setUpLayout()
         
         let api = API()
         
-        api.gettingProducts { res in
-            switch res {
-            case .failure(let err):
-                print(err.localizedDescription)
-            case .success(let search):
-                DispatchQueue.main.async {
-                    if let search = search {
-                        self.products.append(contentsOf: search.coffee ?? [])
-                        self.products.append(contentsOf: search.matcha ?? [])
-                        self.products.append(contentsOf: search.signature ?? [])
-                        self.products.append(contentsOf: search.tea ?? [])
-                        
-                        self.tableview.reloadData()
-                        
-                        
-                        
-                    }
-
-                    
-                }
-            }
-        }
+//        api.gettingProducts { res in
+//            switch res {
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            case .success(let search):
+//                DispatchQueue.main.async {
+//                    if let search = search {
+//                        self.products.append(contentsOf: search.coffee ?? [])
+//                        self.products.append(contentsOf: search.matcha ?? [])
+//                        self.products.append(contentsOf: search.signature ?? [])
+//                        self.products.append(contentsOf: search.tea ?? [])
+//
+//                        self.tableview.reloadData()
+//
+//
+//
+//                    }
+//
+//
+//                }
+//            }
+//        }
         
         
     }
@@ -70,9 +70,27 @@ class ViewController: UIViewController {
         tableview.dataSource = self
         tableview.delegate = self
     
+        
+        let rbutton = UIBarButtonItem(image: UIImage(systemName: "plus")?.withRenderingMode(.alwaysOriginal).withTintColor(.blue), landscapeImagePhone: nil, style: .done, target: self, action: #selector(rightBarButtonWasPressed))
+        
+        let rightButton: UIBarButtonItem = rbutton
+        self.navigationItem.rightBarButtonItem = rightButton
+        
+    }
+    
+    @objc func rightBarButtonWasPressed() {
+        
+        let vc = AddingProductViewController()
+        self.navigationController?.pushViewController(AddingProductViewController(), animated: true)
+        
+        
     }
 
+
 }
+
+
+
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
