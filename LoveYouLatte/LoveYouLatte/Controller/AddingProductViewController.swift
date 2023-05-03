@@ -146,8 +146,6 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         
         print(selectedType?.getStrRepresentation())
         
-        
-        
     }
     
     
@@ -178,10 +176,23 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         return stackview
     }
     
+    
+//    func presentingErrorIfExists() {
+//        if imageView.
+//
+//    }
+    
+    @objc func createProductButtonWasPressed() {
+        let image = imageView.image!
+        var param: Parameters = ["name": "mocha frappe", "price": "6.20", "type": "coffee"]
+        
+//        API.uploadingImage(parameters: param, mediaImage: .init(withImage: image, forKey: "image")!)
+    }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.editedImage] as! UIImage
         let size = CGSize(width: 250, height: 250)
-//        let scaleImage = image.af.imageScaled(to: size, scale: nil)
         imageView.image = image
         dismiss(animated: true, completion: nil)
     }
@@ -234,6 +245,7 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         createProduct.layer.cornerRadius = 25
         createProduct.tintColor = .white
         createProduct.translatesAutoresizingMaskIntoConstraints = false
+        createProduct.addTarget(self, action: #selector(createProductButtonWasPressed), for: .touchUpInside)
         
         
         // adding stackview
@@ -291,26 +303,9 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         
     }
     
+   
 
 }
 
 
 
-// this is default textfield with left padding that I stole from stackoverflow
-// https://stackoverflow.com/questions/25367502/create-space-at-the-beginning-of-a-uitextfield
-class TextField: UITextField {
-
-    let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
-
-    override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-
-    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-
-    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.inset(by: padding)
-    }
-}
