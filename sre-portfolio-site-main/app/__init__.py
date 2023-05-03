@@ -46,18 +46,9 @@ def get_uplaod_file_name(userpic, filename):
 
     newName = str(uuid.uuid4()) + '.' + ext
 
-    print("uid",)
-    print('here', u'photos/%s/profileImg//%s' % (str(userpic.user.id),newName))
-
-
     if userpic.title == "profile_image":
         return u'photos/%s/profileImg//%s' % (str(userpic.user.id),newName)
     return u'photos/%s/%s' % (str(userpic.user.id),newName)
-
-
-
-#
-#
 
 class TimelinePost(Model):
     """
@@ -86,14 +77,38 @@ mydb.create_tables([TimelinePost])
 profile = json.loads(open("app/profile.json", "r").read())
 @app.route('/')
 def index():
-    return render_template('index.html', title="MLH Fellow",profile=profile,  url=os.getenv("URL"))
+    # get the 
+
+
+    # get all of the products 
+    productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
+
+    products = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+
+    for product in products:
+        n = {'id': product.id,'name': product.name, 'imageName':product.imageName, 'price':str(round(product.price, 2)), 'image_url': product.image_url}
+        productsWithCategories[product.atype].append(n)
+
+
+
+
+
+    return render_template('index.html', title="MLH Fellow",profile=profile,productsWithCategories=productsWithCategories,url=os.getenv("URL"))
 
 @app.route('/menu')
 def menu():
-    username = request.args.get('id')
-    print('the id', username)
 
-    return render_template('menu.html', title="menu", profile=profile)
+       # get all of the products 
+    productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
+
+    products = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+
+    for product in products:
+        n = {'id': product.id,'name': product.name, 'imageName':product.imageName, 'price':str(round(product.price, 2)), 'image_url': product.image_url}
+        productsWithCategories[product.atype].append(n)
+
+
+    return render_template('menu.html', title="menu", profile=profile, productsWithCategories=productsWithCategories)
 
 
 
@@ -131,7 +146,6 @@ def get_products():
     # matcha
     # Signature Drinks
     productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
-    print(productsWithCategories)
 
     products = TimelinePost.select().order_by(TimelinePost.created_at.desc())
 
@@ -159,10 +173,18 @@ def add_timeline():
     #getting the type 
     atype= request.form.get('type', None)
 
-    # TODO
-    # check that the type is correct 
+    types = ['tea', 'coffee', 'matcha', 'signature']
 
-    # TODO
+    #making sure that type is correct 
+    if atype: 
+        atype = atype.lower() 
+
+    if (atype in types) ==  False:
+        return "Invalid type", 400
+
+    # TODO: price validation 
+
+
     # return error if there is no image 
     # image 
     f = request.files['image']
@@ -180,17 +202,17 @@ def add_timeline():
     if not price: 
         return "Invalid price", 400
 
-    if not atype: 
-        return "invalid type"
+   
 
     f.save(os.path.join(uploads_path , newName))  # save the file into the uploads folder
 
     url = str(request.base_url)
-    new_url = url.replace('api/timeline_post', "static/uploads/" + newName)
+    new_url = url.replace('api/products', "static/uploads/" + newName)
 
     image_url = new_url
 
-    post = TimelinePost.create(name=name, imageName=newName, price=price,image_url=image_url,atype=atype )
+    post = TimelinePost.create(name=name, imageName=newName, price=price,image_url=new_url,atype=atype )
+
 
     return model_to_dict(post)
 

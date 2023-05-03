@@ -57,37 +57,37 @@
 
    <h2 class="ourCafe">About us 🫶 📜 </h2>
   <p id=ourcafeText> Welcome to Love You Latte, a coffee shop and cafe in Glendale inspired by the philosophy to bring people together to share the things we love most- good food, good coffee & good company. So, whether you're looking for a breakfast boost, a lunchtime snack, or one of our tasty beverages, you'll find something to hit the spot at Love You Latte.</p>
-    
-   <h2 class="title revealable">Signature Drinks ☕️</h2>
+  
+   <h2 class="title revealable">Signature Drinks☕️</h2>
    <div class="row revealable">
-    {% for x in range(profile["featuredProducts"] | length) %}
+    {% for x in range(productsWithCategories['signature'] | length) %}
     <div class="col-4">
       <a href="menu">
-        <!-- <img src="./static/product-img/redbull.png" alt=""> -->
-         {{ profile["featuredProducts"][x]["image"] | safe }}
-        <h4>{{ profile["featuredProducts"][x]["name"] }}</h4>
-        <p>{{ profile["featuredProducts"][x]["price"] }}</p>
+        <img src="{{ productsWithCategories['signature'][x]['image_url'] }}"  alt="">
+        <h4>{{ productsWithCategories['signature'][x]['name'] }}</h4>
+        <p>{{  '$' + productsWithCategories['signature'][x]['price']}}</p>
       </a>
      </div>  
 
     {% endfor %}
    </div>
 
-       <h2 class="title revealable">Tea Based Products 🍵</h2>
-       <div class="row revealable">
 
-       {% for x in range(profile["LatestProducts"] | length) %}
-         <div class="col-4">
-          <a href="menu">
-             {{ profile["LatestProducts"][x]["image"] | safe }}
-            <h4>{{ profile["LatestProducts"][x]["name"] }}</h4>
-            <p>{{ profile["LatestProducts"][x]["price"] }}</p>
-          </a>
-         </div>
+   <h2 class="title revealable">Matcha 🍵</h2>
+   <div class="row revealable">
+    {% for x in range(productsWithCategories['matcha'] | length) %}
+    <div class="col-4">
+      <a href="menu">
+        <img src="{{ productsWithCategories['matcha'][x]['image_url'] }}"  alt="">
+        <h4>{{ productsWithCategories['matcha'][x]['name'] }}</h4>
+        <p>{{  '$' + productsWithCategories['matcha'][x]['price']}}</p>
+      </a>
+     </div>  
+
+    {% endfor %}
+   </div>
 
 
-      {% endfor %}
-       </div>
  </div>
 
  </div>
