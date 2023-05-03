@@ -76,16 +76,53 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return  self.products.count
+        
+        if self.products.count > 0 {
+            return 1
+        }
+        return  0
     }
     
 
     
+    func update(cell: ProductTableViewCell, at indexpath: IndexPath) {
+      
+        
+        
+        let api  = API()
+        Task {
+            do {
+                
+                
+                guard let url = URL(string:"http://loveyoulatte.duckdns.org:5000/static/uploads/72babf3e-1484-4f4a-b715-258365e675aa.jpg") else {return}
+                // products[indexpath.row].imageURL
+               
+                // TODO:
+                let image = try await api.fetchImage(from: url)
+               
+                
+                
+                DispatchQueue.main.async {
+                    cell.songCover.image = image
+                    cell.productNameLbl.text = self.products[indexpath.row].name
+                    cell.priceLbl.text = self.products[indexpath.row].price
+                    
+                }
+                
+                
+                
+            } catch { // prints an error
+                print("error: ", error)
+
+            }
+        }
+        
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.identifier, for: indexPath) as! ProductTableViewCell
-        
-        cell.productNameLbl.text = products[indexPath.row].name
-        cell.priceLbl.text = products[indexPath.row].price
+            update(cell: cell, at: indexPath)
         
         return cell
     }

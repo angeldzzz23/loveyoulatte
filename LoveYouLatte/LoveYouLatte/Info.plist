@@ -4,6 +4,13 @@
 <dict>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>loveyoulatte.duckdns.org:5000/static/uploads/72babf3e-1484-4f4a-b715-258365e675aa.jpg</key>
+			<string></string>
+			<key>loveyoulatte.duckdns.org:5000</key>
+			<string></string>
+		</dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>

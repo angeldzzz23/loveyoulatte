@@ -97,14 +97,17 @@ class ProductTableViewCell: UITableViewCell {
         ])
         
         sv.addArrangedSubview(productHStaview)
+        sv.backgroundColor = .yellow
+        
         productHStaview.addArrangedSubview(songCover)
         productHStaview.addArrangedSubview(productInfoSV)
         productInfoSV.addArrangedSubview(productNameLbl)
+        productInfoSV.backgroundColor = .red
         productInfoSV.addArrangedSubview(priceLbl)
         
     
         NSLayoutConstraint.activate([
-
+            productInfoSV.trailingAnchor.constraint(equalTo: sv.trailingAnchor),
             songCover.widthAnchor.constraint(equalToConstant: 100),
             songCover.heightAnchor.constraint(equalToConstant: 100)
         ])
