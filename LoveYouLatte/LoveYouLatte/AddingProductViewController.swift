@@ -179,7 +179,7 @@ class AddingProductViewController: UIViewController {
         
         // looping to add them to a
         
-        [imageView, nameTextfield, priceTextfield, selectLbl].forEach { v in
+        [imageView, nameTextfield, priceTextfield, selectLbl, createProduct].forEach { v in
             // enable programatic constraints
             v.translatesAutoresizingMaskIntoConstraints = false
             // add view to subview
@@ -198,6 +198,7 @@ class AddingProductViewController: UIViewController {
         createProduct.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         createProduct.layer.cornerRadius = 25
         createProduct.tintColor = .white
+        createProduct.translatesAutoresizingMaskIntoConstraints = false
         
         
         // adding stackview
@@ -246,19 +247,12 @@ class AddingProductViewController: UIViewController {
             verticalSelect.topAnchor.constraint(equalTo: selectLbl.bottomAnchor, constant: 20)
         ])
         
-        
-        
-        
-        
-//        // adding log in button
-//        NSLayoutConstraint.activate([
-//            // constraints top anchor of email to the bottom anchor of the image field with padding of 32
-//            createProduct.topAnchor.constraint(equalTo: selectLbl.bottomAnchor, constant: padding),
-//            createProduct.leadingAnchor.constraint(equalTo: nameTextfield.leadingAnchor),
-//            createProduct.trailingAnchor.constraint(equalTo: nameTextfield.trailingAnchor),
-//            createProduct.heightAnchor.constraint(equalToConstant: 50)
-//        ])
-//
+        NSLayoutConstraint.activate([
+            createProduct.topAnchor.constraint(equalTo: verticalSelect.bottomAnchor, constant: padding),
+            createProduct.leadingAnchor.constraint(equalTo: priceTextfield.leadingAnchor),
+            createProduct.trailingAnchor.constraint(equalTo: priceTextfield.trailingAnchor),
+            createProduct.heightAnchor.constraint(equalToConstant: 50)
+        ])
         
     }
     
