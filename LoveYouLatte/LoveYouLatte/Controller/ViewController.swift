@@ -7,7 +7,36 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+
+
+class ViewController: UIViewController, AddingProductsDelegate {
+
+    func productWasAdded() {
+        products.removeAll()
+        
+        let api = API()
+        api.gettingProducts { res in
+            switch res {
+            case .failure(let err):
+                print(err.localizedDescription)
+            case .success(let search):
+                DispatchQueue.main.async {
+                    if let search = search {
+                        self.products.append(contentsOf: search.coffee ?? [])
+                        self.products.append(contentsOf: search.matcha ?? [])
+                        self.products.append(contentsOf: search.signature ?? [])
+                        self.products.append(contentsOf: search.tea ?? [])
+
+                        self.tableview.reloadData()
+
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
 
     let tableview: UITableView = {
        let tb = UITableView()
@@ -26,9 +55,9 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         title = "Products"
         setUpLayout()
-        
+        self.products.removeAll()
+   
         let api = API()
-        
         api.gettingProducts { res in
             switch res {
             case .failure(let err):
@@ -50,7 +79,31 @@ class ViewController: UIViewController {
         
     }
     
-    view
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let api = API()
+        api.gettingProducts { res in
+            switch res {
+            case .failure(let err):
+                print(err.localizedDescription)
+            case .success(let search):
+                DispatchQueue.main.async {
+                    if let search = search {
+                        self.products.removeAll()
+                        self.products.append(contentsOf: search.coffee ?? [])
+                        self.products.append(contentsOf: search.matcha ?? [])
+                        self.products.append(contentsOf: search.signature ?? [])
+                        self.products.append(contentsOf: search.tea ?? [])
+                        self.tableview.reloadData()
+
+                    }
+                }
+            }
+        }
+
+
+    }
     
     // MARK: setting up
     
@@ -78,6 +131,8 @@ class ViewController: UIViewController {
     @objc func rightBarButtonWasPressed() {
         
         let vc = AddingProductViewController()
+        vc.delegate = self
+        
         self.navigationController?.pushViewController(AddingProductViewController(), animated: true)
         
         
@@ -102,11 +157,12 @@ extension ViewController: UITableViewDataSource {
         
         
         let api  = API()
+        
         Task {
             do {
                 
                 
-                guard let url = URL(string:"http://loveyoulatte.duckdns.org:5000/static/uploads/72babf3e-1484-4f4a-b715-258365e675aa.jpg") else {return}
+                guard let url = URL(string:self.products[indexpath.row].imageURL) else {return}
                 // products[indexpath.row].imageURL
                
                 // TODO:

@@ -37,6 +37,10 @@ enum Validation: Error {
 }
 
 
+protocol AddingProductsDelegate: AnyObject {
+    func productWasAdded()
+}
+
 
 class AddingProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -51,6 +55,8 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
     
     private let priceTextfield = TextField()
     
+  weak var delegate: AddingProductsDelegate?
+   
     
     
     private let createProduct = UIButton(type: .system)
@@ -398,7 +404,7 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
 
 
 
-extension UIViewController {
+extension AddingProductViewController {
      func showAlert(with test: String) {
         var dialogMessage = UIAlertController(title: "Confirm", message: test, preferredStyle: .alert)
         
