@@ -29,31 +29,28 @@ class ViewController: UIViewController {
         
         let api = API()
         
-//        api.gettingProducts { res in
-//            switch res {
-//            case .failure(let err):
-//                print(err.localizedDescription)
-//            case .success(let search):
-//                DispatchQueue.main.async {
-//                    if let search = search {
-//                        self.products.append(contentsOf: search.coffee ?? [])
-//                        self.products.append(contentsOf: search.matcha ?? [])
-//                        self.products.append(contentsOf: search.signature ?? [])
-//                        self.products.append(contentsOf: search.tea ?? [])
-//
-//                        self.tableview.reloadData()
-//
-//
-//
-//                    }
-//
-//
-//                }
-//            }
-//        }
-        
+        api.gettingProducts { res in
+            switch res {
+            case .failure(let err):
+                print(err.localizedDescription)
+            case .success(let search):
+                DispatchQueue.main.async {
+                    if let search = search {
+                        self.products.append(contentsOf: search.coffee ?? [])
+                        self.products.append(contentsOf: search.matcha ?? [])
+                        self.products.append(contentsOf: search.signature ?? [])
+                        self.products.append(contentsOf: search.tea ?? [])
+
+                        self.tableview.reloadData()
+
+                    }
+                }
+            }
+        }
         
     }
+    
+    view
     
     // MARK: setting up
     
@@ -95,10 +92,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if self.products.count > 0 {
-            return 1
-        }
-        return  0
+        return  products.count
     }
     
 

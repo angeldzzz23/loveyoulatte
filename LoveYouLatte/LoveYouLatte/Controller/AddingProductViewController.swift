@@ -37,6 +37,7 @@ enum Validation: Error {
 }
 
 
+
 class AddingProductViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let imageView: UIImageView = {
@@ -49,6 +50,8 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
     private let nameTextfield = TextField()
     
     private let priceTextfield = TextField()
+    
+    
     
     private let createProduct = UIButton(type: .system)
   
@@ -232,10 +235,24 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         
         var param: Parameters = ["name": nameTextfield.text!, "price": priceTextfield.text!, "type": selectedType!.getStrRepresentation()]
 
-        API.uploadingImage(parameters: param, mediaImage: .init(withImage: image, forKey: "image")!)
+        
+        API.uploadingImage2(parameters: param, mediaImage: .init(withImage: image, forKey: "image")!) { res in
+            
+            switch res {
+            case .success(let sr):
+                DispatchQueue.main.async {
+                    self.showAlertWithDismiss(with: "Product Was saved successfully")
+                    
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.showAlert(with: error.localizedDescription)
+                }
+            }
+        }
         
         
-        self.navigationController?.popViewController(animated: true)
+        
     }
     
     
@@ -395,6 +412,22 @@ extension UIViewController {
         // Present Alert to
         self.present(dialogMessage, animated: true, completion: nil)
     }
+    
+    func showAlertWithDismiss(with test: String) {
+       var dialogMessage = UIAlertController(title: "Confirm", message: test, preferredStyle: .alert)
+       
+       // Create OK button with action handler
+       let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+           self.navigationController?.popViewController(animated: true)
+        })
+       
+       //Add OK button to a dialog message
+       dialogMessage.addAction(ok)
+       // Present Alert to
+       self.present(dialogMessage, animated: true, completion: nil)
+   }
+   
+    
     
     
 }

@@ -83,6 +83,43 @@ struct API {
      
     } 
     
+    static func uploadingImage2(parameters: Parameters, mediaImage: Media2, completion: @escaping (Result<String?, Error>) -> Void)  {
+        
+        guard let url = URL(string: "http://loveyoulatte.duckdns.org:5000/api/products") else { return }
+        var request = URLRequest(url: url)
+
+        request.httpMethod = "POST"
+        
+        let boundary = generateBoundary()
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        let dataBody = createDataBody(withParameters: parameters, media: [mediaImage], boundary: boundary)
+        request.httpBody = dataBody
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            if let response = response {
+                print(response)
+                
+            }
+            
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+
+                    completion(.success("Success"))
+                    
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+            }.resume()
+   
+    }
+    
+    
+    
     
     // uploading image
     // https://www.youtube.com/watch?v=8GH0yMPvQFU
