@@ -261,12 +261,10 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         
     }
     
-    
-    
     // MARK: UI set Up
     
     func setUpTextfield(textfield: UITextField, defaultText: String) {
-        textfield.backgroundColor = ColorConstants.gray
+        textfield.backgroundColor = .systemGray5
         textfield.placeholder = defaultText
         textfield.layer.cornerRadius = 8
         textfield.layer.borderWidth = 1

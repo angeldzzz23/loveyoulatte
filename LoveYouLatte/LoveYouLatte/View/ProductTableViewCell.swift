@@ -100,7 +100,6 @@ class ProductTableViewCell: UITableViewCell {
         ])
         
         sv.addArrangedSubview(productHStaview)
-        sv.backgroundColor = .yellow
         
         productHStaview.addArrangedSubview(songCover)
         productHStaview.addArrangedSubview(productInfoSV)

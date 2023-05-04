@@ -51,7 +51,8 @@ class ViewController: UIViewController, AddingProductsDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
+        
         title = "Products"
         setUpLayout()
         self.products.removeAll()

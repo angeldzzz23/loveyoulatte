@@ -22,8 +22,6 @@ typealias Parameters = [String: String]
 // TODO:
 struct API {
     
-    
-    
     let baseUrl = "http://loveyoulatte.duckdns.org:5000/api/products"
     
     
