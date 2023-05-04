@@ -9,11 +9,17 @@ import Foundation
 
 // MARK: - Welcome
 struct Products: Codable {
-    let coffee, matcha, signature, tea: [Product]?
+    var coffee, matcha, signature, tea: [Product]
+    
+//    func delete(type: ProductTypes) {
+//        switch
+//    }
 }
 
 // MARK: - Coffee
 struct Product: Codable {
+   
+    
     let id: Int
     let imageName: String
     let imageURL: String

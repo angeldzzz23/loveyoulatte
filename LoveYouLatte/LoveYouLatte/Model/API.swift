@@ -58,6 +58,34 @@ struct API {
         
     }
     
+    func deleteProductWithId(id: String, completion: @escaping (Result<String, Error>) -> Void) {
+        guard var url2 = URLComponents(string: "http://loveyoulatte.duckdns.org:5000/api/products/" + id) else {return}
+        
+        // setting up the request
+        var request = URLRequest(url: url2.url!)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let data = data {
+                do {
+                    let decoder = JSONDecoder()
+//                    let searchResponse = try decoder.decode(Products.self, from: data) // gets the artists
+                    completion(.success("success"))
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
     // downloading an image 
     func fetchImage(from url: URL) async throws -> UIImage {
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
