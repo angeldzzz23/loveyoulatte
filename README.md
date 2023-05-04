@@ -129,9 +129,9 @@ You should get a response like this in the terminal:
 
 You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! \
 
-# Product endpoints 
+# Love API 
 
-# Creating Product
+# Creating a Product
 
 ### Base endpoint 
 - BASE URL: http://loveyoulatte.duckdns.org:5000/product/
