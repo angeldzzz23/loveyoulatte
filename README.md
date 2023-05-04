@@ -51,8 +51,9 @@ I was inspired to create my own project because of the way that LoveYouLatte mad
 ## Deliverables
 A web application that shows information about loveyoulatte and iOS application that uses the love api update products. 
 
-Web App: http://loveyoulatte.duckdns.org:5000
-ios app: located in this repository 
+- Web App: http://loveyoulatte.duckdns.org:5000
+- ios app: located in this repository 
+- Love API: Modifying products
 
 ## User Stories
 
