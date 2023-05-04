@@ -48,7 +48,9 @@ I was inspired to create my own project because of the way that LoveYouLatte mad
 - Burrito de Chorizo (10/10)
 - Vanilla Latte (10/10)
 
-## Deliverables 
+## Deliverables
+A web application that shows information about loveyoulatte and iOS application that uses the love api update products. 
+
 Web App: http://loveyoulatte.duckdns.org:5000
 ios app: located in this repository 
 
