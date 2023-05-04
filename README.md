@@ -3,7 +3,7 @@ Redesign website of my favorite coffee shop.
 
 The task is to (1) develop a single-page website for your favorite small business in LA and (2) deploy it online. Please make sure to include a note on your website that it is an unofficial webpage for the small business; if this small business already has a website, please submit your own personal redesign or reimagination of that website instead of duplicating the existing one.
 
-Time spent: **25** hours spent in total
+Time spent: **30** hours spent in total
 
 ## Inspiration
 I was given an invitation to start this project on Wednesday, April 19th. At first, I was lost because I had no idea on what to create. However, by that Saturday (April 22), I had been struck with inspiration: I decided to design a website that was inspired by LoveYouLatte.
@@ -48,11 +48,9 @@ I was inspired to create my own project because of the way that LoveYouLatte mad
 - Burrito de Chorizo (10/10)
 - Vanilla Latte (10/10)
 
-
-
-
-## Deployed project
-access: http://loveyoulatte.duckdns.org:5000
+## Deliverables 
+Web App: http://loveyoulatte.duckdns.org:5000
+ios app: located in this repository 
 
 ## User Stories
 
@@ -74,6 +72,12 @@ The following **bonus** features are implemented:
 - [ ] Display if the business is currently open or closed
 - [ ] Hide a part of the page until a button is clicked
 - [ ] Add something with a JS library you haven’t used before
+- [x] dark mode
+
+iOS App Features:
+- [x] User can see all products
+- [x] User can delete products
+- [x] User can Create products
 - [x] dark mode
 
 
@@ -249,13 +253,21 @@ You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000`
 \
 
 
+# iOS App  
 
+The current iOS app creared for this project allows you to modify the existing products. User can also use postman to edit the products. 
 
+## Seeting all Products 
+<img width="325" alt="Screenshot 2023-05-03 at 6 25 28 PM" src="https://user-images.githubusercontent.com/29695936/236087634-899bd6ab-d00e-4462-9e9e-e406497f96e1.png">
 
+##  Deleting  Single Product 
+  - feature: Swipe Left
+  
+<img width="334" alt="Screenshot 2023-05-03 at 6 22 12 PM" src="https://user-images.githubusercontent.com/29695936/236086811-d99f8f99-4054-47bb-a345-cfdafd8298b5.png">
 
-
-
-
+##  Creating products
+  - feature: Creating Products 
+ <img width="329" alt="Screenshot 2023-05-03 at 6 24 03 PM" src="https://user-images.githubusercontent.com/29695936/236087258-41fae669-7bcb-4ba4-a464-0bcb641635bc.png">
 
 
 
