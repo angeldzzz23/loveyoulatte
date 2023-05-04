@@ -256,10 +256,9 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
                 }
             }
         }
-        
-        
-        
+         
     }
+    
     
     // MARK: UI set Up
     
