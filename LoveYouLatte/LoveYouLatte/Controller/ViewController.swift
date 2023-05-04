@@ -26,20 +26,16 @@ class ViewController: UIViewController, AddingProductsDelegate {
                         self.products.append(contentsOf: search.matcha ?? [])
                         self.products.append(contentsOf: search.signature ?? [])
                         self.products.append(contentsOf: search.tea ?? [])
-
+                        self.productWithCategories = search
                         self.tableview.reloadData()
-
                     }
                 }
             }
         }
-        
-        
     }
     
-
     let tableview: UITableView = {
-       let tb = UITableView()
+        let tb = UITableView(frame: .zero, style: .grouped)
         tb.backgroundColor = .systemGray6
         tb.translatesAutoresizingMaskIntoConstraints = false // enabling programic autolayout
         tb.register(ProductTableViewCell.self, forCellReuseIdentifier: ProductTableViewCell.identifier)
@@ -49,6 +45,9 @@ class ViewController: UIViewController, AddingProductsDelegate {
     }()
     
     var products = [Product]()
+    var productWithCategories: Products?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +94,7 @@ class ViewController: UIViewController, AddingProductsDelegate {
                         self.products.append(contentsOf: search.matcha ?? [])
                         self.products.append(contentsOf: search.signature ?? [])
                         self.products.append(contentsOf: search.tea ?? [])
+                        self.productWithCategories = search
                         self.tableview.reloadData()
 
                     }

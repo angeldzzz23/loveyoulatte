@@ -30,7 +30,6 @@ class ProductTableViewCell: UITableViewCell {
     let songCover: UIImageView = {
         let imageview = UIImageView()
         imageview.translatesAutoresizingMaskIntoConstraints = false
-        imageview.backgroundColor = .yellow
         return imageview
     }()
     
@@ -106,7 +105,6 @@ class ProductTableViewCell: UITableViewCell {
         productHStaview.addArrangedSubview(songCover)
         productHStaview.addArrangedSubview(productInfoSV)
         productInfoSV.addArrangedSubview(productNameLbl)
-        productInfoSV.backgroundColor = .red
         productInfoSV.addArrangedSubview(priceLbl)
         
     

@@ -188,8 +188,6 @@ struct API {
         return body
     }
     
-    
-    
 }
 
 // extending data
