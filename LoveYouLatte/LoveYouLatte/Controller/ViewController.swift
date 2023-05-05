@@ -36,7 +36,7 @@ class ViewController: UIViewController, AddingProductsDelegate {
     
     let tableview: UITableView = {
         let tb = UITableView(frame: .zero, style: .insetGrouped)
-        tb.backgroundColor = .systemGray6
+//        tb.backgroundColor = .systemGray6
         tb.translatesAutoresizingMaskIntoConstraints = false // enabling programic autolayout
         tb.register(ProductTableViewCell.self, forCellReuseIdentifier: ProductTableViewCell.identifier)
         
@@ -52,6 +52,7 @@ class ViewController: UIViewController, AddingProductsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
+        
         
         title = "Products"
         setUpLayout()
