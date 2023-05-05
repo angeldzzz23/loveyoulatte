@@ -1,6 +1,6 @@
 version: "3"
 services:
-  loveyoulatte:
+  myportfolio:
     container_name: myportfolio
     build: .
     restart: always
@@ -31,7 +31,7 @@ services:
       - nginx_secrets:/etc/letsencrypt
       - ./user_conf.d:/etc/nginx/user_conf.d
     depends_on:
-      - loveyoulatte
+      - myportfolio
 
 volumes:
   mydatabase:
