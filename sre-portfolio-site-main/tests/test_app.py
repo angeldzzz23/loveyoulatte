@@ -39,8 +39,6 @@ class AppTestCase(TestCase):
     	assert "<p>275 W Lexington Dr3<br>Glendale, California</p>" in html
 
 
-
-
     def test_products_api(self) -> None: 
     	get_response = self.client.get("/api/products")
     	assert get_response.status_code == 200
@@ -72,5 +70,7 @@ class AppTestCase(TestCase):
     	assert post_response.status_code == 200
 
     	# deleting using the deletion endpoint 
+    def test_incorrect_products_api(self) -> None:
+    	print("TODO")
 
 

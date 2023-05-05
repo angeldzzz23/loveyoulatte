@@ -173,48 +173,60 @@ def add_timeline():
     #getting the type 
     atype= request.form.get('type', None)
 
+    # Valivation
     types = ['tea', 'coffee', 'matcha', 'signature']
 
+
     #making sure that type is correct 
+
     if atype: 
         atype = atype.lower() 
-
+    
     if (atype in types) ==  False:
         return "Invalid type", 400
 
     # TODO: price validation 
 
+    try:
+        print(float(price))    
+    except ValueError:
+        return "Invalid Price", 400
 
-    # return error if there is no image 
-    # image 
-    f = request.files['image']
+    if float(price) < 0:
+        return "Invalid Price", 400
 
-    ext = f.filename.split('.')[-1]
+    return "Invalid something", 400
 
-    newName = str(uuid.uuid4()) + '.' + ext
+    # # return error if there is no image 
+    # # image 
+    # f = request.files['image']
 
-    if not f:
-        return "no image uploaded", 400
+    # ext = f.filename.split('.')[-1]
 
-    if not name or not len(name):
-        return "Invalid name", 400
+    # newName = str(uuid.uuid4()) + '.' + ext
 
-    if not price: 
-        return "Invalid price", 400
+    # if not f:
+    #     return "no image uploaded", 400
+
+    # if not name or not len(name):
+    #     return "Invalid name", 400
+
+    # if not price: 
+    #     return "Invalid price", 400
 
    
 
-    f.save(os.path.join(uploads_path , newName))  # save the file into the uploads folder
+    # f.save(os.path.join(uploads_path , newName))  # save the file into the uploads folder
 
-    url = str(request.base_url)
-    new_url = url.replace('api/products', "static/uploads/" + newName)
+    # url = str(request.base_url)
+    # new_url = url.replace('api/products', "static/uploads/" + newName)
 
-    image_url = new_url
+    # image_url = new_url
 
-    post = TimelinePost.create(name=name, imageName=newName, price=price,image_url=new_url,atype=atype )
+    # post = TimelinePost.create(name=name, imageName=newName, price=price,image_url=new_url,atype=atype )
 
 
-    return model_to_dict(post)
+    # return model_to_dict(post)
 
 
 # deleting endpoint 
