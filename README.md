@@ -116,9 +116,9 @@ User the following command to spin up our images
 docker compose up -d
 ```
 
-this should be accessibele
+this should be accessible ()
 ```bash
-http://localhost:5000
+http://localhost:8080
 ```
 
 to stop our containers, you can use the following command: 
