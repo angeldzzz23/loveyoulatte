@@ -46,9 +46,17 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
 
     let imageView: UIImageView = {
         let imgview = UIImageView()
-        imgview.backgroundColor = .red
         imgview.translatesAutoresizingMaskIntoConstraints = false
+        imgview.backgroundColor = .systemGray5
         return imgview
+    }()
+    
+    
+    private let addImageLbl: UILabel = {
+        let lbl: UILabel = UILabel()
+        lbl.text = "Click To Add Image"
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        return lbl
     }()
     
     private let nameTextfield = TextField()
@@ -296,16 +304,15 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         }
 
 
-        
-        imageView.backgroundColor = .yellow
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageviewWasPressed))
           
           // 2. add the gesture recognizer to a view
         imageView.addGestureRecognizer(tapGesture)
         imageView.isUserInteractionEnabled = true
+        imageView.addSubview(addImageLbl)
         
         // setting the background color of the imagefield
-        imageView.image = UIImage(named: "Logo")
+//        imageView.image = UIImage(named: "Logo")
         imageView.contentMode = .scaleAspectFill
         
         // looping to add them to a
@@ -347,6 +354,11 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             imageView.widthAnchor.constraint(equalToConstant: 200),
             imageView.heightAnchor.constraint(equalToConstant: 200)
+        ])
+        
+        NSLayoutConstraint.activate([
+            addImageLbl.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            addImageLbl.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
         ])
         
         let padding: CGFloat = 32
