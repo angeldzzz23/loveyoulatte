@@ -117,19 +117,27 @@ def menu():
 
 @app.route('/api/products/<product_id>', methods=["DELETE"])
 def delete(product_id):
+    
+    try: 
+        int(product_id)
+    except: 
+        return "invalid id", 400
+
     product_id = product_id
 
+    # getting the id from the user 
+    # we could probably use get instead of this
     cursor = mydb.cursor()
     sql = "Select * from timelinepost where id=" + str(product_id)
     cursor.execute(sql)
     results = cursor.fetchall()
 
+
     try: 
         # deletes the image 
         os.remove(os.path.join(uploads_path , results[0][3]))
     except: 
-        return {'error': 'file not found'}
-
+        return "Couldnt find image to delete", 400
 
     TimelinePost.delete_by_id(product_id)
 
