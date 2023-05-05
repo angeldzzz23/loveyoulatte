@@ -177,7 +177,7 @@ def add_timeline():
     types = ['tea', 'coffee', 'matcha', 'signature']
 
 
-    #making sure that type is correct 
+    #Validation for type  
 
     if atype: 
         atype = atype.lower() 
@@ -185,36 +185,40 @@ def add_timeline():
     if (atype in types) ==  False:
         return "Invalid type", 400
 
-    # TODO: price validation 
+    # validation for price
 
+    if not price: # checking if there is no price 
+        return "Invalid price", 400
     try:
         print(float(price))    
+
     except ValueError:
         return "Invalid Price", 400
 
     if float(price) < 0:
         return "Invalid Price", 400
 
+
+
     return "Invalid something", 400
 
+
+
     # # return error if there is no image 
-    # # image 
-    # f = request.files['image']
+    # should probably check if is an actual image 
+    try:
+        f = request.files['image']
+    except:
+        return "Invalid Image", 400
 
-    # ext = f.filename.split('.')[-1]
+    ext = f.filename.split('.')[-1]
 
-    # newName = str(uuid.uuid4()) + '.' + ext
-
-    # if not f:
-    #     return "no image uploaded", 400
+    newName = str(uuid.uuid4()) + '.' + ext
 
     # if not name or not len(name):
     #     return "Invalid name", 400
 
-    # if not price: 
-    #     return "Invalid price", 400
-
-   
+    
 
     # f.save(os.path.join(uploads_path , newName))  # save the file into the uploads folder
 
