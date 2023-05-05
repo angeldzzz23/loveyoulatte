@@ -55,6 +55,8 @@ A web application that shows information about loveyoulatte and iOS application 
 - Web App: http://loveyoulatte.duckdns.org:5000
 - ios app: located in this repository 
 - Love API: Modifying products
+- 
+Tests
 
 ## User Stories
 
@@ -129,7 +131,17 @@ You should get a response like this in the terminal:
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! \
+You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
+
+# Running Unit Tests 
+To run unit test created simply run the bash script. 
+```bash
+    sh runTests.sh
+```
+
+
+
+
 
 # Love API 
 
