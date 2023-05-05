@@ -14,6 +14,33 @@ class AppTestCase(TestCase):
     def setUp(self) -> None:
         self.client = app.test_client()
 
+    def test_home(self) -> None:
+    	get_response = self.client.get("/")
+    	assert get_response.status_code == 200
+
+    	html = get_response.get_data(as_text=True)
+
+    	assert "<p>275 W Lexington Dr3<br>Glendale, California</p>" in html
+
+    def test_menu(self) -> None:
+    	get_response = self.client.get("/menu")
+    	assert get_response.status_code == 200
+
+    	html = get_response.get_data(as_text=True)
+
+    	assert "<p>275 W Lexington Dr3<br>Glendale, California</p>" in html
+
+    def test_about(self) -> None:
+    	get_response = self.client.get("/about")
+    	assert get_response.status_code == 200
+
+    	html = get_response.get_data(as_text=True)
+
+    	assert "<p>275 W Lexington Dr3<br>Glendale, California</p>" in html
+
+
+
+
     def test_products_api(self) -> None: 
     	get_response = self.client.get("/api/products")
     	assert get_response.status_code == 200
@@ -25,8 +52,6 @@ class AppTestCase(TestCase):
     	assert "matcha" in json
     	assert "tea" in json
     	assert "signature" in json
-
-
 
     	# creating a product 
 
