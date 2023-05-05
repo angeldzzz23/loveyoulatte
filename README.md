@@ -50,12 +50,12 @@ I was inspired to create my own project because of the way that LoveYouLatte mad
 - Vanilla Latte (10/10)
 
 ## Deliverables
-A web application that shows information about loveyoulatte and iOS application that uses the love api update products. 
+A containerized web application that shows information about loveyoulatte and the iOS application that utilizes the **love** api to update products. 
 
 - Web App: http://loveyoulatte.duckdns.org:5000
 - ios app: located in this repository 
 - Love API: Modifying products
-- Tests
+- Unit Tests
 
 ## User Stories
 
@@ -68,14 +68,14 @@ The following **required** functionality is completed:
 - [x] publish website 
 
 The following **bonus** features are implemented:
-- [ ] A photo gallery
+- [x] A photo gallery
 - [x] Navigation menu and multiple pages
-- [ ] An “overview” section linking to other sections with page anchors
+- [x] An “overview” section linking to other sections with page anchors
 - [x] onHover/onScroll animations
 - [x] A mobile responsive site
 - [x] More advanced use of flexbox/grid CSS
 - [ ] Display if the business is currently open or closed
-- [ ] Hide a part of the page until a button is clicked
+- [x] Hide a part of the page until a button is clicked (hides products and animates as you scroll down)
 - [ ] Add something with a JS library you haven’t used before
 - [x] dark mode
 
@@ -95,8 +95,39 @@ iOS App Features:
 - Javascript
 - html/css
 - Bash (Scripting)
+- Docker 
 
-## Installation
+## Installation -- docker 
+
+create your .env file inside of sre-portfolio-site-main (it should look very similar to the example.env)
+
+```bash
+# .env
+URL=localhost:5000
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=Sheep787
+MYSQL_DATABASE=loveyoulatte
+```
+
+User the following command to spin up our images
+
+```bash
+docker compose up -d
+```
+
+this should be accessibele
+```bash
+http://localhost:5000
+```
+
+to stop our containers, you can use the following command: 
+
+```bash
+docker compose down
+```
+
+## Installation 
 
 Make sure you have python3 and pip installed
 
