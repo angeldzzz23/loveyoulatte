@@ -11,7 +11,6 @@ from dotenv import load_dotenv
 from peewee import *
 from flask import Flask, render_template, request
 from playhouse.shortcuts import model_to_dict
-# from pylast import LastFMNetwork
 import os
 import uuid
 
@@ -38,18 +37,7 @@ mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
     port=3306
 )
 
-# TODO: make cleaner
-def get_uplaod_file_name(userpic, filename):
-    ext = filename.split('.')[-1]
-
-    # TODO: change the name of the file
-
-    newName = str(uuid.uuid4()) + '.' + ext
-
-    if userpic.title == "profile_image":
-        return u'photos/%s/profileImg//%s' % (str(userpic.user.id),newName)
-    return u'photos/%s/%s' % (str(userpic.user.id),newName)
-
+# TODO: change the name of this 
 class TimelinePost(Model):
     """
     Represents a timeline post
@@ -72,13 +60,9 @@ mydb.connect()
 mydb.create_tables([TimelinePost])
 
 
-
-
 profile = json.loads(open("app/profile.json", "r").read())
 @app.route('/')
 def index():
-    # get the 
-
 
     # get all of the products 
     productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
@@ -89,16 +73,11 @@ def index():
         n = {'id': product.id,'name': product.name, 'imageName':product.imageName, 'price':str(round(product.price, 2)), 'image_url': product.image_url}
         productsWithCategories[product.atype].append(n)
 
-
-
-
-
     return render_template('index.html', title="MLH Fellow",profile=profile,productsWithCategories=productsWithCategories,url=os.getenv("URL"))
 
 @app.route('/menu')
 def menu():
-
-       # get all of the products 
+ 
     productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
 
     products = TimelinePost.select().order_by(TimelinePost.created_at.desc())
@@ -111,25 +90,30 @@ def menu():
     return render_template('menu.html', title="menu", profile=profile, productsWithCategories=productsWithCategories)
 
 
-
-
 # deleting products 
-
 @app.route('/api/products/<product_id>', methods=["DELETE"])
 def delete(product_id):
+    
+    try: 
+        int(product_id)
+    except: 
+        return "invalid id", 400
+
     product_id = product_id
 
+    # getting the id from the user 
+    # we could probably use get instead of this
     cursor = mydb.cursor()
     sql = "Select * from timelinepost where id=" + str(product_id)
     cursor.execute(sql)
     results = cursor.fetchall()
 
+
     try: 
         # deletes the image 
         os.remove(os.path.join(uploads_path , results[0][3]))
     except: 
-        return {'error': 'file not found'}
-
+        return "Couldnt find image to delete", 400
 
     TimelinePost.delete_by_id(product_id)
 
@@ -157,11 +141,8 @@ def get_products():
     return productsWithCategories
 
 
-
-
-
 @app.route("/api/products", methods=["POST"])
-def add_timeline():
+def add_products():
     
     """
     Adds a new post to the timeline.
@@ -173,37 +154,48 @@ def add_timeline():
     #getting the type 
     atype= request.form.get('type', None)
 
+    # Valivation
     types = ['tea', 'coffee', 'matcha', 'signature']
 
-    #making sure that type is correct 
+
+    #Validation for type  
+
     if atype: 
         atype = atype.lower() 
-
+    
     if (atype in types) ==  False:
         return "Invalid type", 400
 
-    # TODO: price validation 
+    # validation for price
+
+    if not price: # checking if there is no price 
+        return "Invalid price", 400
+    try:
+        float(price)   
+
+    except ValueError:
+        return "Invalid Price", 400
+
+    if float(price) < 0:
+        return "Invalid Price", 400
+
+    # adding name validation
+    if not name or not len(name):
+        return "Invalid name", 400
 
 
-    # return error if there is no image 
-    # image 
-    f = request.files['image']
+    # # return error if there is no image 
+    # should probably check if is an actual image 
+    try:
+        f = request.files['image']
+    except:
+        return "Invalid Image", 400
 
     ext = f.filename.split('.')[-1]
 
     newName = str(uuid.uuid4()) + '.' + ext
 
-    if not f:
-        return "no image uploaded", 400
-
-    if not name or not len(name):
-        return "Invalid name", 400
-
-    if not price: 
-        return "Invalid price", 400
-
-   
-
+    
     f.save(os.path.join(uploads_path , newName))  # save the file into the uploads folder
 
     url = str(request.base_url)
@@ -215,10 +207,6 @@ def add_timeline():
 
 
     return model_to_dict(post)
-
-
-# deleting endpoint 
-
 
 
 @app.route('/about')

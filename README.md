@@ -1,7 +1,7 @@
 # loveyoulatte
 A Redesign website of my favorite coffee shop. 
 
-##The task
+## The task
 To (1) develop a single-page website for your favorite small business in LA and (2) deploy it online. **Please make sure to include a note on your website that it is an unofficial webpage for the small business; if this small business already has a website, please submit your own personal redesign or reimagination of that website instead of duplicating the existing one.**
 
 Time spent: **30** hours spent in total
@@ -55,6 +55,8 @@ A web application that shows information about loveyoulatte and iOS application 
 - Web App: http://loveyoulatte.duckdns.org:5000
 - ios app: located in this repository 
 - Love API: Modifying products
+- 
+Tests
 
 ## User Stories
 
@@ -129,7 +131,17 @@ You should get a response like this in the terminal:
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! \
+You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
+
+# Running Unit Tests 
+To run unit test created simply run the bash script. 
+```bash
+    sh runTests.sh
+```
+
+
+
+
 
 # Love API 
 
