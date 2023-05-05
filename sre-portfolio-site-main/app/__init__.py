@@ -161,7 +161,7 @@ def get_products():
 
 
 @app.route("/api/products", methods=["POST"])
-def add_timeline():
+def add_products():
     
     """
     Adds a new post to the timeline.
@@ -190,7 +190,7 @@ def add_timeline():
     if not price: # checking if there is no price 
         return "Invalid price", 400
     try:
-        print(float(price))    
+        float(price)   
 
     except ValueError:
         return "Invalid Price", 400
@@ -198,10 +198,9 @@ def add_timeline():
     if float(price) < 0:
         return "Invalid Price", 400
 
-
-
-    return "Invalid something", 400
-
+    # adding name validation
+    if not name or not len(name):
+        return "Invalid name", 400
 
 
     # # return error if there is no image 
@@ -215,25 +214,19 @@ def add_timeline():
 
     newName = str(uuid.uuid4()) + '.' + ext
 
-    # if not name or not len(name):
-    #     return "Invalid name", 400
-
     
+    f.save(os.path.join(uploads_path , newName))  # save the file into the uploads folder
 
-    # f.save(os.path.join(uploads_path , newName))  # save the file into the uploads folder
+    url = str(request.base_url)
+    new_url = url.replace('api/products', "static/uploads/" + newName)
 
-    # url = str(request.base_url)
-    # new_url = url.replace('api/products', "static/uploads/" + newName)
+    image_url = new_url
 
-    # image_url = new_url
-
-    # post = TimelinePost.create(name=name, imageName=newName, price=price,image_url=new_url,atype=atype )
-
-
-    # return model_to_dict(post)
+    post = TimelinePost.create(name=name, imageName=newName, price=price,image_url=new_url,atype=atype )
 
 
-# deleting endpoint 
+    return model_to_dict(post)
+
 
 
 
