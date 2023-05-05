@@ -55,8 +55,7 @@ A web application that shows information about loveyoulatte and iOS application 
 - Web App: http://loveyoulatte.duckdns.org:5000
 - ios app: located in this repository 
 - Love API: Modifying products
-- 
-Tests
+- Tests
 
 ## User Stories
 
