@@ -31,7 +31,7 @@ class AppTestCase(TestCase):
     	# creating a product 
 
     	post_response = self.client.post("/api/products", data = {
-    		"name": "Green Tea",
+    		"name": "Green Tea222",
     		 "price": "12.12",
     		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
     		 "type": "tea"
@@ -39,11 +39,12 @@ class AppTestCase(TestCase):
 
     	assert post_response.status_code == 200
     	json = post_response.get_json()
-    	TimelinePost.delete_by_id(json['id'])
 
-    	# testing deleting a product 
+    	# testing the deleting endpoint 
 
-    	
+    	delete_renpose = self.client.delete("/api/products/" + str(json['id']))
+
+    	assert post_response.status_code == 200
 
     	# deleting using the deletion endpoint 
 
