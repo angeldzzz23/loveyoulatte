@@ -72,63 +72,70 @@ class AppTestCase(TestCase):
     	
     	# deleting using the deletion endpoint 
     def test_incorrect_products_api(self) -> None:
-    	
+    	# removes key and sends new reponse 
+    	def removeVal(key):
+    		all_data = {
+    		"name": "Green Tea222",
+			"price": "12.12",
+    		"image": (io.BytesIO(b"abcdef"), 'test.jpg'),
+    		 "type": "tea"
+    		}
+    		all_data.pop(key)
+    		post_response = self.client.post("/api/products", data = all_data)    		
+    		return post_response
+		# helper methods to change values to incorrect ones 
+    	def change(key, value):
+    		all_data = {
+    		"name": "Green Tea222",
+			"price": "12.12",
+    		"image": (io.BytesIO(b"abcdef"), 'test.jpg'),
+    		 "type": "tea"
+    		}
+    		all_data[key] = value
+    		post_response = self.client.post("/api/products", data = all_data)    		
+    		return post_response    		
+
+
+
     	# testing the product 
     	# creating a product without a price 
-    	post_response = self.client.post("/api/products", data = {
-    		"name": "Green Tea222",
-    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
-    		 "type": "tea"
-    		})
+    	post_response = removeVal("price")
+    	text = post_response.get_data(as_text=True)
+    	assert "Invalid price" in text    	
     	assert post_response.status_code == 400
 
-    	post_response = self.client.post("/api/products", data = {
-    		"name": "Green Tea222",
-    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
-    		 "price": "aa",
-    		 "type": "tea"
-    		})
+    	
 
+    	# checking for incorrect input 
+    	post_response = change("price", "aa")
+    	text = post_response.get_data(as_text=True)
+    	assert "Invalid Price" in text        	
     	assert post_response.status_code == 400
+
     	
     	# testing for incorrect name 
-    	post_response = self.client.post("/api/products", data = {
-    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
-    		 "price": "12",
-    		 "type": "tea"
-    		})
+    	post_response = removeVal("name")
+
     	assert post_response.status_code == 400
 
     	# testing for incorrect type
 
     	#missing type 
-    	post_response = self.client.post("/api/products", data = {
-    		"name": "Green Tea222",
-    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
-    		 "price": "12",
-    		})
+    	post_response = removeVal("type")
 
     	assert post_response.status_code == 400
 
     	# testing for wrong type 
-    	post_response = self.client.post("/api/products", data = {
-    		"name": "Green Tea222",
-    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
-    		 "price": "12",
-    		 "type": "tea2"
-    		})
-
-    	assert post_response.status_code == 400    	
-
-    	# testing for missing image 
-    	post_response = self.client.post("/api/products", data = {
-    		"name": "Green Tea222",
-    		 "price": "12",
-    		 "type": "tea2"
-    		})    
+    	post_response = change("type", "hahahah")
+    	assert post_response.status_code == 400  
     	text = post_response.get_data(as_text=True)
     	assert "Invalid type" in text
 
+
+    	# testing for missing image 
+    	post_response = removeVal("image") 
+    	text = post_response.get_data(as_text=True)
+    	assert "Invalid Image" in text
     	assert post_response.status_code == 400 	
 
 
