@@ -69,8 +69,78 @@ class AppTestCase(TestCase):
 
     	assert post_response.status_code == 200
 
+    	
     	# deleting using the deletion endpoint 
     def test_incorrect_products_api(self) -> None:
-    	print("TODO")
+    	
+    	# testing the product 
+    	# creating a product without a price 
+    	post_response = self.client.post("/api/products", data = {
+    		"name": "Green Tea222",
+    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
+    		 "type": "tea"
+    		})
+    	assert post_response.status_code == 400
 
+    	post_response = self.client.post("/api/products", data = {
+    		"name": "Green Tea222",
+    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
+    		 "price": "aa",
+    		 "type": "tea"
+    		})
+
+    	assert post_response.status_code == 400
+    	
+    	# testing for incorrect name 
+    	post_response = self.client.post("/api/products", data = {
+    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
+    		 "price": "12",
+    		 "type": "tea"
+    		})
+    	assert post_response.status_code == 400
+
+    	# testing for incorrect type
+
+    	#missing type 
+    	post_response = self.client.post("/api/products", data = {
+    		"name": "Green Tea222",
+    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
+    		 "price": "12",
+    		})
+
+    	assert post_response.status_code == 400
+
+    	# testing for wrong type 
+    	post_response = self.client.post("/api/products", data = {
+    		"name": "Green Tea222",
+    		 "image": (io.BytesIO(b"abcdef"), 'test.jpg'),
+    		 "price": "12",
+    		 "type": "tea2"
+    		})
+
+    	assert post_response.status_code == 400    	
+
+    	# testing for missing image 
+    	post_response = self.client.post("/api/products", data = {
+    		"name": "Green Tea222",
+    		 "price": "12",
+    		 "type": "tea2"
+    		})    
+    	text = post_response.get_data(as_text=True)
+    	assert "Invalid type" in text
+
+    	assert post_response.status_code == 400 	
+
+
+    def testing_incorrect_deletion_api(self) -> None:
+
+    	delete_renpose = self.client.delete("/api/products/" + str("a"))
+
+    	assert delete_renpose.status_code == 400
+
+
+
+
+
+    	# testing the deleting endpoint 
 
