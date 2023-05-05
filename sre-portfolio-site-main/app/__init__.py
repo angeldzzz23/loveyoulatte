@@ -37,18 +37,7 @@ mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
     port=3306
 )
 
-# TODO: make cleaner
-def get_uplaod_file_name(userpic, filename):
-    ext = filename.split('.')[-1]
-
-    # TODO: change the name of the file
-
-    newName = str(uuid.uuid4()) + '.' + ext
-
-    if userpic.title == "profile_image":
-        return u'photos/%s/profileImg//%s' % (str(userpic.user.id),newName)
-    return u'photos/%s/%s' % (str(userpic.user.id),newName)
-
+# TODO: change the name of this 
 class TimelinePost(Model):
     """
     Represents a timeline post
@@ -71,13 +60,9 @@ mydb.connect()
 mydb.create_tables([TimelinePost])
 
 
-
-
 profile = json.loads(open("app/profile.json", "r").read())
 @app.route('/')
 def index():
-    # get the 
-
 
     # get all of the products 
     productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
@@ -88,16 +73,11 @@ def index():
         n = {'id': product.id,'name': product.name, 'imageName':product.imageName, 'price':str(round(product.price, 2)), 'image_url': product.image_url}
         productsWithCategories[product.atype].append(n)
 
-
-
-
-
     return render_template('index.html', title="MLH Fellow",profile=profile,productsWithCategories=productsWithCategories,url=os.getenv("URL"))
 
 @app.route('/menu')
 def menu():
-
-       # get all of the products 
+ 
     productsWithCategories = {'tea': [], 'coffee':[],'matcha':[], 'signature': []}
 
     products = TimelinePost.select().order_by(TimelinePost.created_at.desc())
@@ -110,10 +90,7 @@ def menu():
     return render_template('menu.html', title="menu", profile=profile, productsWithCategories=productsWithCategories)
 
 
-
-
 # deleting products 
-
 @app.route('/api/products/<product_id>', methods=["DELETE"])
 def delete(product_id):
     
@@ -162,9 +139,6 @@ def get_products():
 
 
     return productsWithCategories
-
-
-
 
 
 @app.route("/api/products", methods=["POST"])
@@ -233,8 +207,6 @@ def add_products():
 
 
     return model_to_dict(post)
-
-
 
 
 @app.route('/about')
