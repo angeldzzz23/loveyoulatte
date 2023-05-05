@@ -11,7 +11,6 @@ from dotenv import load_dotenv
 from peewee import *
 from flask import Flask, render_template, request
 from playhouse.shortcuts import model_to_dict
-# from pylast import LastFMNetwork
 import os
 import uuid
 
