@@ -22,12 +22,12 @@ typealias Parameters = [String: String]
 // TODO:
 struct API {
     
-    let baseUrl = "http://loveyoulatte.duckdns.org/api/products"
+    let baseUrl = "http://loveyoulatte.duckdns.org:5000/api/products"
     
     
     func gettingProducts(completion: @escaping (Result<Products?, Error>) -> Void) {
         // setting up the end point
-        guard var url2 = URLComponents(string: "http://loveyoulatte.duckdns.org/api/products") else {return}
+        guard var url2 = URLComponents(string: "http://loveyoulatte.duckdns.org:5000/api/products") else {return}
 
         print(url2)
         
@@ -57,7 +57,7 @@ struct API {
     }
     
     func deleteProductWithId(id: String, completion: @escaping (Result<String, Error>) -> Void) {
-        guard var url2 = URLComponents(string: "http://loveyoulatte.duckdns.org/api/products/" + id) else {return}
+        guard var url2 = URLComponents(string: "http://loveyoulatte.duckdns.org:5000/api/products/" + id) else {return}
         
         // setting up the request
         var request = URLRequest(url: url2.url!)
@@ -111,7 +111,7 @@ struct API {
     
     static func uploadingImage2(parameters: Parameters, mediaImage: Media2, completion: @escaping (Result<String?, Error>) -> Void)  {
         
-        guard let url = URL(string: "http://loveyoulatte.duckdns.org/api/products") else { return }
+        guard let url = URL(string: "http://loveyoulatte.duckdns.org:5000/api/products") else { return }
         var request = URLRequest(url: url)
 
         request.httpMethod = "POST"
@@ -151,7 +151,7 @@ struct API {
     // https://www.youtube.com/watch?v=8GH0yMPvQFU
     static func uploadingImage(parameters: Parameters, mediaImage: Media2) {
         
-        guard let url = URL(string: "http://loveyoulatte.duckdns.org/api/products") else { return }
+        guard let url = URL(string: "http://loveyoulatte.duckdns.org:5000/api/products") else { return }
         var request = URLRequest(url: url)
 
         request.httpMethod = "POST"
