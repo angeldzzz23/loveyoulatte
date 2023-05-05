@@ -137,6 +137,7 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Adding product"
         view.backgroundColor = .systemGray6
         setUp()
         // Do any additional setup after loading the view.
