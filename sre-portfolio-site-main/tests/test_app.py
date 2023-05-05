@@ -104,10 +104,16 @@ class AppTestCase(TestCase):
     	assert "Invalid price" in text    	
     	assert post_response.status_code == 400
 
-    	
+
 
     	# checking for incorrect input 
-    	post_response = change("price", "aa")
+    	post_response = change("price", "aa") # non floating number
+    	text = post_response.get_data(as_text=True)
+    	assert "Invalid Price" in text        	
+    	assert post_response.status_code == 400
+
+    	# -1 number 
+    	post_response = change("price", "-1")
     	text = post_response.get_data(as_text=True)
     	assert "Invalid Price" in text        	
     	assert post_response.status_code == 400
@@ -115,14 +121,13 @@ class AppTestCase(TestCase):
     	
     	# testing for incorrect name 
     	post_response = removeVal("name")
-
+    	text = post_response.get_data(as_text=True)
+    	assert "Invalid name" in text        
     	assert post_response.status_code == 400
 
     	# testing for incorrect type
-
     	#missing type 
     	post_response = removeVal("type")
-
     	assert post_response.status_code == 400
 
     	# testing for wrong type 
@@ -132,11 +137,14 @@ class AppTestCase(TestCase):
     	assert "Invalid type" in text
 
 
+
     	# testing for missing image 
     	post_response = removeVal("image") 
     	text = post_response.get_data(as_text=True)
     	assert "Invalid Image" in text
     	assert post_response.status_code == 400 	
+    	# TODO: validation to check if it is actually an image 
+
 
 
     def testing_incorrect_deletion_api(self) -> None:
@@ -145,9 +153,4 @@ class AppTestCase(TestCase):
 
     	assert delete_renpose.status_code == 400
 
-
-
-
-
-    	# testing the deleting endpoint 
 
