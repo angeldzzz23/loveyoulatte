@@ -48,6 +48,8 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         let imgview = UIImageView()
         imgview.translatesAutoresizingMaskIntoConstraints = false
         imgview.backgroundColor = .systemGray5
+        imgview.layer.cornerRadius = 16
+        imgview.clipsToBounds = true
         return imgview
     }()
     
@@ -55,6 +57,8 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
     private let addImageLbl: UILabel = {
         let lbl: UILabel = UILabel()
         lbl.text = "Click To Add Image"
+        lbl.font = FontConstants.boldFont
+        lbl.textColor = ColorConstants.lovePink
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -113,7 +117,7 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
     
     func createButton() -> UIButton {
         let btn = UIButton(type: .system)
-        btn.setImage(UIImage(systemName: "circle"), for: .normal)
+        btn.setImage(UIImage(systemName: "circle")?.withRenderingMode(.alwaysOriginal).withTintColor(ColorConstants.lovePink), for: .normal)
         btn.addTarget(self, action: #selector(buttonWasPressed), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
@@ -192,25 +196,22 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
             let picker = UIImagePickerController()
             picker.delegate = self
             picker.allowsEditing = true
-            
             picker.sourceType = .photoLibrary
-            
             present(picker, animated: true, completion: nil)
-            
-            
         }
         
     }
+    // 
     
     @objc func buttonWasPressed(button: UIButton) {
         
         // deselect all of the buttons
         
         allButtons.forEach { v in
-            v.setImage(UIImage(systemName: "circle"), for: .normal)
+            v.setImage(UIImage(systemName: "circle")?.withRenderingMode(.alwaysOriginal).withTintColor(ColorConstants.lovePink), for: .normal)
         }
         
-        button.setImage(UIImage(systemName: "circle.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "circle.fill")?.withRenderingMode(.alwaysOriginal).withTintColor(ColorConstants.lovePink), for: .normal)
         
         let indexOfbutton = allButtons.firstIndex(of: button) // 0
         
@@ -222,7 +223,10 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
     
     
     @objc func createProductButtonWasPressed() {
-        let image = imageView.image!
+        
+
+        
+ 
         
         do {
             try validateFields()
@@ -243,6 +247,8 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         } catch {
             self.showAlert(with: "Some other Error. BRBRBRRBRBRBRBR")
         }
+        
+        let image = imageView.image!
         
         // we can add the image
         
@@ -330,7 +336,7 @@ class AddingProductViewController: UIViewController, UIImagePickerControllerDele
         setUpTextfield(textfield: priceTextfield, defaultText: "Enter Price")
         
         // set up loginButton
-        createProduct.backgroundColor = ColorConstants.green
+        createProduct.backgroundColor = ColorConstants.lovePink
         createProduct.setTitle("Create", for: .normal)
         createProduct.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         createProduct.layer.cornerRadius = 25

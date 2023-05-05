@@ -35,7 +35,7 @@ class ViewController: UIViewController, AddingProductsDelegate {
     }
     
     let tableview: UITableView = {
-        let tb = UITableView(frame: .zero, style: .grouped)
+        let tb = UITableView(frame: .zero, style: .insetGrouped)
         tb.backgroundColor = .systemGray6
         tb.translatesAutoresizingMaskIntoConstraints = false // enabling programic autolayout
         tb.register(ProductTableViewCell.self, forCellReuseIdentifier: ProductTableViewCell.identifier)
@@ -145,7 +145,7 @@ class ViewController: UIViewController, AddingProductsDelegate {
         tableview.delegate = self
     
         
-        let rbutton = UIBarButtonItem(image: UIImage(systemName: "plus")?.withRenderingMode(.alwaysOriginal).withTintColor(.blue), landscapeImagePhone: nil, style: .done, target: self, action: #selector(rightBarButtonWasPressed))
+        let rbutton = UIBarButtonItem(image: UIImage(systemName: "plus")?.withRenderingMode(.alwaysOriginal).withTintColor(ColorConstants.lovePink), landscapeImagePhone: nil, style: .done, target: self, action: #selector(rightBarButtonWasPressed))
         
         let rightButton: UIBarButtonItem = rbutton
         self.navigationItem.rightBarButtonItem = rightButton
@@ -287,7 +287,7 @@ extension ViewController: UITableViewDataSource {
 
 
                 DispatchQueue.main.async {
-                    cell.songCover.image = image
+                    cell.productImage.image = image
                     cell.productNameLbl.text = product.name
                     cell.priceLbl.text = product.price
 

@@ -18,6 +18,8 @@ struct ColorConstants {
     static let red = UIColor(red: 191/255, green: 78/255, blue: 63/255, alpha: 1)
     static let backgroundColor = UIColor.systemGray6
     static let yellow = UIColor(red: 245/255, green: 191/255, blue: 65/255, alpha: 1)
+    
+    static let lovePink: UIColor  = UIColor(red: 245/255, green: 190/255, blue: 196/255, alpha: 1)
 }
 
 struct FontConstants {

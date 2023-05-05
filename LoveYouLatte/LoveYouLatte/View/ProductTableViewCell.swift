@@ -27,9 +27,11 @@ class ProductTableViewCell: UITableViewCell {
         return sv
     }()
     
-    let songCover: UIImageView = {
+    let productImage: UIImageView = {
         let imageview = UIImageView()
         imageview.translatesAutoresizingMaskIntoConstraints = false
+        imageview.layer.cornerRadius = 8
+        imageview.clipsToBounds = true
         return imageview
     }()
     
@@ -60,6 +62,7 @@ class ProductTableViewCell: UITableViewCell {
     let productNameLbl: UILabel = {
         let lbl = UILabel()
         lbl.text = "Latte"
+        lbl.font = FontConstants.boldFont
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -67,6 +70,8 @@ class ProductTableViewCell: UITableViewCell {
     let priceLbl: UILabel = {
         let lbl = UILabel()
         lbl.text = "$6.00"
+        lbl.textColor = .gray
+        lbl.font = FontConstants.cellMediumFont
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -101,7 +106,7 @@ class ProductTableViewCell: UITableViewCell {
         
         sv.addArrangedSubview(productHStaview)
         
-        productHStaview.addArrangedSubview(songCover)
+        productHStaview.addArrangedSubview(productImage)
         productHStaview.addArrangedSubview(productInfoSV)
         productInfoSV.addArrangedSubview(productNameLbl)
         productInfoSV.addArrangedSubview(priceLbl)
@@ -109,8 +114,8 @@ class ProductTableViewCell: UITableViewCell {
     
         NSLayoutConstraint.activate([
             productInfoSV.trailingAnchor.constraint(equalTo: sv.trailingAnchor),
-            songCover.widthAnchor.constraint(equalToConstant: 100),
-            songCover.heightAnchor.constraint(equalToConstant: 100)
+            productImage.widthAnchor.constraint(equalToConstant: 100),
+            productImage.heightAnchor.constraint(equalToConstant: 100)
         ])
         
         
