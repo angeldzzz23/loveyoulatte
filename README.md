@@ -74,7 +74,7 @@ The following **bonus** features are implemented:
 - [x] onHover/onScroll animations
 - [x] A mobile responsive site
 - [x] More advanced use of flexbox/grid CSS
-- [ ] Display if the business is currently open or closed
+- [x] Display if the business is currently open or closed
 - [x] Hide a part of the page until a button is clicked (hides products and animates as you scroll down)
 - [ ] Add something with a JS library you haven’t used before
 - [x] dark mode
