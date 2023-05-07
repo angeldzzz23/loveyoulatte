@@ -50,3 +50,68 @@ const reveal = () => {
 window.addEventListener('scroll', reveal);
 
 
+
+// let themeButton = document.getElementById("hey");
+// themeButton.textContent = "Light Mode";
+
+
+/*
+Monday  8 AM–5 PM ->   9,17
+Tuesday 8 AM–5 PM -> 9,17
+Wednesday 8 AM–5 PM -> 9,17
+Thursday  8 AM–5 PM -> 9,17
+Friday   9 AM–4 PM -> 9,16
+Saturday 9 AM–4 PM -> 9,16
+Sunday   9 AM–4 PM -> 9,16
+
+*/
+
+// day 1 is monday, sunday = 7
+// const days = [1,2,3,4,6,7];
+
+// const daysToHours = new Map([
+//   [1, [8,17]], // monday
+//   [2, [8,17]], // Tuesday
+//   [3, [8,17]], // Wednesday 
+//   [4, [8,17]], // Thursday
+//   [5, [9,16]],  // Friday 
+//   [6, [9,16]], // Saturday 
+//   [7, [9,16]] // sunday
+// ]);
+
+// // time 
+
+// const day = 5;
+// const hour = 9;
+// var isOpen = false;
+
+// // check the day 
+// if (day >= 1 && day <= 4) {
+//   // check the time 
+//     if (hour >= 8 && hour <= 17) {
+//       // open 
+       
+//       isOpen = true;
+//     }  
+    
+// } else {
+//   // check the time 
+//  if (hour >= 9 && hour <= 16) {
+//       isOpen = true;
+//   } 
+
+// }
+
+
+// if (isOpen) {
+//     themeButton.style.color = 'green';
+//     themeButton.textContent = "Open";
+
+// } else {
+//   themeButton.style.color = 'red';
+//    themeButton.textContent = "Closed";
+// }
+
+
+
+
