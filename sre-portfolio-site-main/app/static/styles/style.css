@@ -347,10 +347,10 @@ input: focus {
 .cart-page {
   margin: 80px auto;
 }
-table {
+/*table {
   width: 100%;
   border-collapse: collapse;
-}
+}*/
 
 .cart-info {
   display: flex;
