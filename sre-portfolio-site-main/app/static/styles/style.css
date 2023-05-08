@@ -89,7 +89,7 @@ p{
   transition: background 0.5s;
 }
 
-#theme-button {
+.theme-button {
   display: inline-block;
   background: black;
   color: #fff;
@@ -102,7 +102,7 @@ p{
 
 }
 
-#theme-button:hover {
+.theme-button:hover {
   background-color: white;
   color: black;
 }
@@ -484,12 +484,12 @@ color: #fad0c3; text-align: center;
    color: white;
 }
 
-.dark-mode #theme-button {
+.dark-mode .theme-button {
  background-color: white;
   color: black;
 }
 
-.dark-mode #theme-button:hover {
+.dark-mode .theme-button:hover {
  background-color: black;
   color: white;
 }
