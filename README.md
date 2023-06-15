@@ -1,11 +1,6 @@
 # loveyoulatte
 A Redesign website of my favorite coffee shop. 
 
-## The task
-To (1) develop a single-page website for your favorite small business in LA and (2) deploy it online. **Please make sure to include a note on your website that it is an unofficial webpage for the small business; if this small business already has a website, please submit your own personal redesign or reimagination of that website instead of duplicating the existing one.**
-
-Time spent: **30** hours spent in total
-
 ## Inspiration
 I was given an invitation to start this project on Wednesday, April 19th. Initially, I felt lost because I had no idea on what i wanted to create. I thought of making a taqueria or even one of my favorite pizza shops. However, this changed On Saturday April 22 when I visited LoveYouLatte for the very first time. 
 
